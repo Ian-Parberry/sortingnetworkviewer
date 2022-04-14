@@ -7,7 +7,7 @@
 The source code for this sorting network viewer is written and maintained by
 [Ian Parberry](http://ianparberry.com). See 
 [https://ian-parberry.github.io/sortingnetworkviewer/](https://ian-parberry.github.io/sortingnetworkviewer/)
-for code documentation.
+for documentation.
 
 ## Requirements
 
