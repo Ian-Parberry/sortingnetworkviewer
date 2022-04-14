@@ -1,7 +1,7 @@
 # Sorting Network Viewer
 
 <p align="center">
-  <img src="WinVerifyAndDraw/Doxygen/Images/ss.png" width="300" title="Screenshot">
+  <img src="Doxygen/Images/ss.png" width="300" title="Screenshot">
 </p>
 
 The source code for this sorting network viewer is written and maintained by
