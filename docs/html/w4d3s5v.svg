@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="90" height="120" viewBox="-4 -4 90 120" xmlns="http://www.w3.org/2000/svg">
+<style>
+circle{fill:black;r:4.0}line{stroke:black;stroke-width:2.0}
+</style>
+<line x1="4" y1="0" x2="4" y2="112"/>
+<line x1="28" y1="0" x2="28" y2="112"/>
+<line x1="52" y1="0" x2="52" y2="112"/>
+<line x1="76" y1="0" x2="76" y2="112"/>
+<circle cx="28" cy="24"/><circle cx="4" cy="24"/><line x1="28" y1="24" x2="4" y2="24"/>
+<circle cx="76" cy="24"/><circle cx="52" cy="24"/><line x1="76" y1="24" x2="52" y2="24"/>
+<circle cx="52" cy="48"/><circle cx="4" cy="48"/><line x1="52" y1="48" x2="4" y2="48"/>
+<circle cx="76" cy="64"/><circle cx="28" cy="64"/><line x1="76" y1="64" x2="28" y2="64"/>
+<circle cx="52" cy="88"/><circle cx="28" cy="88"/><line x1="52" y1="88" x2="28" y2="88"/>
+</svg>
