@@ -1,4 +1,4 @@
-/// \file itonic.cpp
+/// \file Bitonic.cpp
 /// \brief Code for Batcher's bitonic sorting network.
 
 // MIT License

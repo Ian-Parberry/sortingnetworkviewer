@@ -75,7 +75,8 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>1. Introduction </h2>
-<p >The source code for this sorting network drawing and verification tool, written and maintained by <a href="http://ianparberry.com">Ian Parberry</a>, can load comparator networks from a text file or generate any of the three standard sorting networks: odd-even, bitonic, and pairwise. Once loaded a comparator network will be drawn with the channels running horizontally and the comparators running vertically. For example, <a class="el" href="index.html#fig1">Fig. 1</a> shows, from left to right, a 16-input odd-even, bitonic, and pairwise sorting network.</p>
+<p >A <em>comparator network</em> consists of a fixed number of <em>channels</em> that carry scalar values from some strongly ordered set (usually integers or floating point numbers), and <em>comparators</em> that connect pairs of channels, swapping the values on the channels if they are not in a desired order. Comparator networks that sort all inputs are called <em>sorting networks</em>. See the <a href="https://en.wikipedia.org/wiki/Sorting_network">Wikipedia page</a> for more information.</p>
+<p >The source code for this sorting network drawing and verification tool, written and maintained by <a href="https://ianparberry.com">Ian Parberry</a>, can load comparator networks from a text file or generate any of the three standard sorting networks: odd-even, bitonic, and pairwise. Once loaded a comparator network will be drawn with the channels running horizontally and the comparators running vertically. For example, <a class="el" href="index.html#fig1">Fig. 1</a> shows, from left to right, a 16-input odd-even, bitonic, and pairwise sorting network.</p>
 <p ><a class="anchor" id="fig1"></a> </p><div class="image">
 <object type="image/svg+xml" data="triple.svg" width="85%" style="pointer-events: none;"></object>
 <div class="caption">
@@ -121,7 +122,16 @@ verification", in Parle91, Proceedings of Parallel Architectures and Languages E
 <div class="image">
 <img src="ExportMenu.png" alt=""/>
 </div>
-<p >The <code>Export</code> sub-menu will pop up a Windows <code>Save</code> <code>File</code> dialog box that can save an image of the current comparator network in one of three formats. <code>Png</code> saves the image as a bitmap in <code>Portable</code> <code>Network</code> <code>Graphics</code> format. <code>Svg</code> saves the image in <code>Scalable</code> <code>Vector</code> <code>Graphics</code> format which can be opened in any web browser. This is superior to <code>Png</code> format in that it can be zoomed in or out without pixelation. <code>TeX</code> saves the image as a <code>picture</code> environment that can be input in a <code>figure</code> environment in any \(\LaTeX\) manuscript. An example can be found in the folder <code>LaTeX</code> <code>Example</code> contained in the same folder as the Visual Studio solution file for this project.</p>
+<p >The <code>Export</code> sub-menu will pop up a Windows <code>Save</code> <code>File</code> dialog box that can save an image of the current comparator network in one of three formats.</p>
+<ol type="1">
+<li><code>Png</code> saves the image as a bitmap in <code>Portable</code> <code>Network</code> <code>Graphics</code> format.</li>
+<li><code>Svg</code> saves the image in <code>Scalable</code> <code>Vector</code> <code>Graphics</code> format which can be opened in any web browser. This is superior to <code>Png</code> format in that it can be zoomed in or out without pixelation.</li>
+<li><code>TeX</code> saves the image as a \(\TeX\) <code>picture</code> environment that can be used as a figure in a \(\LaTeX\) document. For example, if the sorting network <code>knuth16.txt</code> is exported as <code>knuth16.tex</code>, then the following \(\LaTeX\) code will input it into a manuscript as a figure. <div class="fragment"><div class="line">\begin{figure}</div>
+<div class="line">  \centering\input{knuth16.tex}</div>
+<div class="line">  \caption{A 16-input sorting network.}</div>
+<div class="line">\end{figure}</div>
+</div><!-- fragment --></li>
+</ol>
 <p ><a class="anchor" id="quit"></a></p><h4>3.1.4 <code>Quit</code></h4>
 <p >Selecting <code>Quit</code> will exit the application.</p>
 <hr  />
@@ -162,7 +172,7 @@ Fig. 3: A 4-input sorting network in vertical format.</div></div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2022 17:41:59 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Generated on Fri Apr 15 2022 12:04:38 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
 </small></address>
 </body>
 </html>

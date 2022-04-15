@@ -3,9 +3,16 @@
 /// 1. Introduction
 /// ------------
 ///
+/// A _comparator network_ consists of a fixed number of _channels_ that carry
+/// scalar values from some strongly ordered set (usually integers or floating point
+/// numbers), and _comparators_ that connect pairs of channels, swapping the values on
+/// the channels if they are not in a desired order. Comparator networks that sort
+/// all inputs are called _sorting networks_. See the 
+/// [Wikipedia page](https://en.wikipedia.org/wiki/Sorting_network) for more information.
+///
 /// The source code for this sorting network drawing and verification tool, 
 /// written and maintained by
-/// [Ian Parberry](http://ianparberry.com), can
+/// [Ian Parberry](https://ianparberry.com), can
 /// load comparator networks from a text file or generate any of the three standard
 /// sorting networks: odd-even, bitonic, and pairwise.
 /// Once loaded a comparator network will be drawn with the channels running
@@ -133,14 +140,23 @@
 /// 
 /// The `Export` sub-menu will pop up a Windows `Save` `File` dialog box that can save
 /// an image of the current comparator network in one of three formats.
-/// `Png` saves the image as a bitmap in `Portable` `Network` `Graphics` format.
-/// `Svg` saves the image in `Scalable` `Vector` `Graphics` format which
+///
+/// 1. `Png` saves the image as a bitmap in `Portable` `Network` `Graphics` format.
+///
+/// 2. `Svg` saves the image in `Scalable` `Vector` `Graphics` format which
 /// can be opened in any web browser. This is superior to `Png` format in that
 /// it can be zoomed in or out without pixelation.
-/// `TeX` saves the image as a `picture` environment that can be input
-/// in a `figure` environment in any \f$\LaTeX\f$ manuscript.
-/// An example can be found in the folder `LaTeX` `Example` contained in
-/// the same folder as the Visual Studio solution file for this project.
+///
+/// 3. `TeX` saves the image as a \f$\TeX\f$ `picture` environment that can be used
+/// as a figure in a \f$\LaTeX\f$ document.
+/// For example, if the sorting network `knuth16.txt` is exported as `knuth16.tex`,
+/// then the following \f$\LaTeX\f$ code will input it into a manuscript as a figure.
+/// ~~~
+///    \begin{figure}
+///      \centering\input{knuth16.tex}
+///      \caption{A 16-input sorting network.}
+///    \end{figure}
+/// ~~~
 ///
 /// \anchor quit
 /// #### 3.1.4 `Quit`
