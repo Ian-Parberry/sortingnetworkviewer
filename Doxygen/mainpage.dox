@@ -23,7 +23,7 @@
 ///
 /// \anchor fig1
 ///
-/// \image html triple.svg "Fig. 1: A 16-input odd-even (left), bitonic (center), and pairwise (right) sorting network." width=85% 
+/// \image html triple.svg "Fig. 1: A 16-input odd-even (left), bitonic (center), and pairwise (right) sorting network." width=95% 
 /// 
 /// The image can be exported as a `PNG` file, an `SVG` file, or a `TeX` file
 /// (see \ref export "Section 3.1.3" for more information).
@@ -89,7 +89,7 @@
 ///      0 2 1 3
 ///      1 2
 ///
-/// describes the four-input sorting network below in Fig. 2.
+/// describes the four-input sorting network below in \ref fig2 "Fig. 2"
 /// The channels are numbered 0 through 3 from bottom to top.
 ///
 /// \anchor fig2
@@ -170,28 +170,61 @@
 ///
 /// \image html GenerateMenu.png 
 ///
-/// The `Generate` menu has three options, `Odd-even`, `Bitonic`, and `Pairwise`.
-/// The first two options generate Batcher's odd-even and bitonic sorting networks from
+/// The `Generate` menu has six options, `Bubblesort-min`,
+/// `Bubblesort-max`, `Bubblesort`, `Odd-even`, `Bitonic`, and `Pairwise`.
+/// All of these will pop up a dialog box asking for the number of inputs.
+///
+/// \image html inputs.png 
+///
+/// `Bubblesort-min` generates a sorting network that emulates the classical
+/// bubblesort algorithm by bubbling the smallest value to the minimum channel,
+/// then the second smallest value to the second minimum channel, etc., placing each
+/// sequence of comparators as close as possible to take advantage of parallelism.
+/// An \f$n\f$-input `Bubblesort-min` sorting network has depth \f$2n-3\f$ and
+/// size (number of comparators) \f$n(n-1)/2\f$.
+/// \ref fig3 "Fig. 3" (left) shows an example with 16 inputs.
+///
+/// `Bubblesort-max` generates a similar sorting network that bubbles maxima
+/// instead of minima.
+/// It also has depth \f$2n-3\f$ and size \f$n(n-1)/2\f$.
+/// \ref fig3 "Fig. 3" (center) shows an example with 16 inputs.
+///
+/// `Bubblesort` generates a fully parallelized bubblesort.
+/// An \f$n\f$-input `Bubblesort` sorting network has depth \f$n\f$ and
+/// size \f$n(n-1)/2\f$.
+/// \ref fig3 "Fig. 3" (right) shows an example with 16 inputs.
+///
+/// \anchor fig3
+///
+/// \image html Bubblesort16.svg "Fig. 3: 16-input bubblesort-min (left), bubblesort-max (center) and bubblesort (right) sorting networks." width=95% 
+///
+/// `Odd-even` and `Bitonic` generate Batcher's odd-even and bitonic sorting
+///  networks, respectively, from
 ///
 /// > K. E. Batcher, "Sorting networks and their applications", In Proc. AFIPS
 /// > Spring Joint Computer Conference, Vol. 32, pp. 307–314, 1968.
 ///
-/// The last option generates the pairwise sorting network from
+/// \ref fig1 "Fig. 1" (left) shows an odd-even sorting network with 16 inputs.
+/// \ref fig1 "Fig. 1" (center) shows a bitonic sorting network with 16 inputs.
+///
+/// `Pairwise` generates the pairwise sorting network from
 ///
 /// > I. Parberry, "The pairwise sorting network", 
 /// > _Parallel Processing Letters_, Vol. 2, No. 2,3, pp. 205-211, 1992.
 ///
-/// Examples can be seen in \ref fig1 "Fig. 1".
-/// All three choices will pop up a dialog box asking for the number of inputs.
-///
-/// \image html inputs.png 
+/// \ref fig1 "Fig. 1" (right) shows a pairwise sorting network with 16 inputs.
 ///
 /// Technically, the odd-even, bitonic, and pairwise sorting networks are only
 /// defined for a power of 2 inputs.
-/// If you specify a number of inputs that is not a power of two, the generator will
-/// round it up to the next power of two, generate the sorting network,
+/// If you specify a number of inputs \f$n\f$ that is not a power of two, 
+/// the generator will
+/// construct a sorting network with \f$2^{\lceil \log_2 n\rceil}\f$ inputs
 /// and remove the unneeded channels and 
-/// the comparators on them starting at the maximum channel.
+/// the comparators on them.
+/// If \f$n\f$ is a power of 2, the odd-even and pairwise sorting networks have depth
+/// \f$\log_2(n) (\log_2 (n) + 1)/2\f$ and size
+/// \f$n\log_2 (n)(\log_2 (n) - 1)/4 + n - 1\f$, and the bitonic sorting network
+/// has the same depth and size \f$n \log_2(n)/2\f$.
 ///
 /// ---
 /// 
@@ -206,12 +239,12 @@
 /// bottom to top.
 /// Selecting `Vertical` will display and exports image with
 /// vertical channels and the output in non-decreasing order from left to right.
-/// For example, in \ref fig3 "Fig. 3" shows the 4-input sorting network
+/// For example, in \ref fig4 "Fig. 4" shows the 4-input sorting network
 /// from \ref fig2 "Fig. 2" drawn in vertical format.
 ///
-/// \anchor fig3
+/// \anchor fig4
 ///
-/// \image html w4d3s5v.svg "Fig. 3: A 4-input sorting network in vertical format." height=80
+/// \image html w4d3s5v.svg "Fig. 3: A 4-input sorting network drawn in vertical format." height=80
 ///
 /// ---
 ///

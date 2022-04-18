@@ -49,6 +49,7 @@ class CComparatorNetwork{
 
     void InsertComparator(UINT, UINT, UINT); ///< Insert comparator.
     void CreateMatchArray(UINT, UINT); ///< Create match array.
+    void ComputeSize(); ///< Compute size.
 
   public: 
     ~CComparatorNetwork(); ///< Destructor.

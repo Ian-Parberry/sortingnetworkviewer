@@ -78,7 +78,7 @@ $(function() {
 <p >A <em>comparator network</em> consists of a fixed number of <em>channels</em> that carry scalar values from some strongly ordered set (usually integers or floating point numbers), and <em>comparators</em> that connect pairs of channels, swapping the values on the channels if they are not in a desired order. Comparator networks that sort all inputs are called <em>sorting networks</em>. See the <a href="https://en.wikipedia.org/wiki/Sorting_network">Wikipedia page</a> for more information.</p>
 <p >The source code for this sorting network drawing and verification tool, written and maintained by <a href="https://ianparberry.com">Ian Parberry</a>, can load comparator networks from a text file or generate any of the three standard sorting networks: odd-even, bitonic, and pairwise. Once loaded a comparator network will be drawn with the channels running horizontally and the comparators running vertically. For example, <a class="el" href="index.html#fig1">Fig. 1</a> shows, from left to right, a 16-input odd-even, bitonic, and pairwise sorting network.</p>
 <p ><a class="anchor" id="fig1"></a> </p><div class="image">
-<object type="image/svg+xml" data="triple.svg" width="85%" style="pointer-events: none;"></object>
+<object type="image/svg+xml" data="triple.svg" width="95%" style="pointer-events: none;"></object>
 <div class="caption">
 Fig. 1: A 16-input odd-even (left), bitonic (center), and pairwise (right) sorting network.</div></div>
 <p >The image can be exported as a <code>PNG</code> file, an <code>SVG</code> file, or a <code>TeX</code> file (see <a class="el" href="index.html#export">Section 3.1.3</a> for more information). The comparators route the smaller of the values on its channels to the upper of the two channels that it is connected to, and the larger of the two values to the lower. A comparator network can be be tested to verify that it is a sorting network, that is, whether the outputs of the sorting network are in non-descending order from top to bottom.</p>
@@ -96,7 +96,7 @@ Fig. 1: A 16-input odd-even (left), bitonic (center), and pairwise (right) sorti
 <p >Selecting <code>Open</code> will pop up a Windows <code>Open</code> <code>File</code> dialog box that will allow you to choose a text file to load. Be aware that there is minimal error checking and no error reporting, so it is best to load only text files that are in the correct format for a comparator network, which is as follows. An \(n\)-input comparator network of depth \(d\) will have \(d\) lines of text, one for each layer of non-overlapping comparators (that is, no two comparators in the same level can have a channel in common). Each line contains a number of pairs \(i,j\) of channel numbers, one for each comparator on that level, where \(0 \leq i,j &lt; n\). The channel numbers should be separated by spaces. For example, the following three-line text file </p><pre class="fragment"> 0 1 2 3
  0 2 1 3
  1 2
-</pre><p> describes the four-input sorting network below in Fig. 2. The channels are numbered 0 through 3 from bottom to top.</p>
+</pre><p> describes the four-input sorting network below in <a class="el" href="index.html#fig2">Fig. 2</a> The channels are numbered 0 through 3 from bottom to top.</p>
 <p ><a class="anchor" id="fig2"></a> </p><div class="image">
 <object type="image/svg+xml" data="w4d3s5.svg" width="80" style="pointer-events: none;"></object>
 <div class="caption">
@@ -139,29 +139,38 @@ verification", in Parle91, Proceedings of Parallel Architectures and Languages E
 <div class="image">
 <img src="GenerateMenu.png" alt=""/>
 </div>
-<p >The <code>Generate</code> menu has three options, <code>Odd-even</code>, <code>Bitonic</code>, and <code>Pairwise</code>. The first two options generate Batcher's odd-even and bitonic sorting networks from</p>
-<blockquote class="doxtable">
-<p >K. E. Batcher, "Sorting networks and their applications", In Proc. AFIPS Spring Joint Computer Conference, Vol. 32, pp. 307–314, 1968. </p>
-</blockquote>
-<p>The last option generates the pairwise sorting network from</p>
-<blockquote class="doxtable">
-<p >I. Parberry, "The pairwise sorting network", <em>Parallel Processing Letters</em>, Vol. 2, No. 2,3, pp. 205-211, 1992. </p>
-</blockquote>
-<p>Examples can be seen in <a class="el" href="index.html#fig1">Fig. 1</a>. All three choices will pop up a dialog box asking for the number of inputs.</p>
+<p >The <code>Generate</code> menu has six options, <code>Bubblesort-min</code>, <code>Bubblesort-max</code>, <code>Bubblesort</code>, <code>Odd-even</code>, <code>Bitonic</code>, and <code>Pairwise</code>. All of these will pop up a dialog box asking for the number of inputs.</p>
 <div class="image">
 <img src="inputs.png" alt=""/>
 </div>
-<p >Technically, the odd-even, bitonic, and pairwise sorting networks are only defined for a power of 2 inputs. If you specify a number of inputs that is not a power of two, the generator will round it up to the next power of two, generate the sorting network, and remove the unneeded channels and the comparators on them starting at the maximum channel.</p>
+<p ><code>Bubblesort-min</code> generates a sorting network that emulates the classical bubblesort algorithm by bubbling the smallest value to the minimum channel, then the second smallest value to the second minimum channel, etc., placing each sequence of comparators as close as possible to take advantage of parallelism. An \(n\)-input <code>Bubblesort-min</code> sorting network has depth \(2n-3\) and size (number of comparators) \(n(n-1)/2\). <a class="el" href="index.html#fig3">Fig. 3</a> (left) shows an example with 16 inputs.</p>
+<p ><code>Bubblesort-max</code> generates a similar sorting network that bubbles maxima instead of minima. It also has depth \(2n-3\) and size \(n(n-1)/2\). <a class="el" href="index.html#fig3">Fig. 3</a> (center) shows an example with 16 inputs.</p>
+<p ><code>Bubblesort</code> generates a fully parallelized bubblesort. An \(n\)-input <code>Bubblesort</code> sorting network has depth \(n\) and size \(n(n-1)/2\). <a class="el" href="index.html#fig3">Fig. 3</a> (right) shows an example with 16 inputs.</p>
+<p ><a class="anchor" id="fig3"></a> </p><div class="image">
+<object type="image/svg+xml" data="Bubblesort16.svg" width="95%" style="pointer-events: none;"></object>
+<div class="caption">
+Fig. 3: 16-input bubblesort-min (left), bubblesort-max (center) and bubblesort (right) sorting networks.</div></div>
+<p ><code>Odd-even</code> and <code>Bitonic</code> generate Batcher's odd-even and bitonic sorting networks, respectively, from</p>
+<blockquote class="doxtable">
+<p >K. E. Batcher, "Sorting networks and their applications", In Proc. AFIPS Spring Joint Computer Conference, Vol. 32, pp. 307–314, 1968. </p>
+</blockquote>
+<p><a class="el" href="index.html#fig1">Fig. 1</a> (left) shows an odd-even sorting network with 16 inputs. <a class="el" href="index.html#fig1">Fig. 1</a> (center) shows a bitonic sorting network with 16 inputs.</p>
+<p ><code>Pairwise</code> generates the pairwise sorting network from</p>
+<blockquote class="doxtable">
+<p >I. Parberry, "The pairwise sorting network", <em>Parallel Processing Letters</em>, Vol. 2, No. 2,3, pp. 205-211, 1992. </p>
+</blockquote>
+<p><a class="el" href="index.html#fig1">Fig. 1</a> (right) shows a pairwise sorting network with 16 inputs.</p>
+<p >Technically, the odd-even, bitonic, and pairwise sorting networks are only defined for a power of 2 inputs. If you specify a number of inputs \(n\) that is not a power of two, the generator will construct a sorting network with \(2^{\lceil \log_2 n\rceil}\) inputs and remove the unneeded channels and the comparators on them. If \(n\) is a power of 2, the odd-even and pairwise sorting networks have depth \(\log_2(n) (\log_2 (n) + 1)/2\) and size \(n\log_2 (n)(\log_2 (n) - 1)/4 + n - 1\), and the bitonic sorting network has the same depth and size \(n \log_2(n)/2\).</p>
 <hr  />
 <p ><a class="anchor" id="viewmenu"></a></p><h3>3.3 The <code>View</code> Menu</h3>
 <div class="image">
 <img src="ViewMenu.png" alt=""/>
 </div>
-<p >The <code>View</code> menu has three options, <code>Horizontal</code>, and <code>Vertical</code>. The default is <code>Horizontal</code> which displays and exports images in the standard form with horizontal channels and the output in non-decreasing order from bottom to top. Selecting <code>Vertical</code> will display and exports image with vertical channels and the output in non-decreasing order from left to right. For example, in <a class="el" href="index.html#fig3">Fig. 3</a> shows the 4-input sorting network from <a class="el" href="index.html#fig2">Fig. 2</a> drawn in vertical format.</p>
-<p ><a class="anchor" id="fig3"></a> </p><div class="image">
+<p >The <code>View</code> menu has three options, <code>Horizontal</code>, and <code>Vertical</code>. The default is <code>Horizontal</code> which displays and exports images in the standard form with horizontal channels and the output in non-decreasing order from bottom to top. Selecting <code>Vertical</code> will display and exports image with vertical channels and the output in non-decreasing order from left to right. For example, in <a class="el" href="index.html#fig4">Fig. 4</a> shows the 4-input sorting network from <a class="el" href="index.html#fig2">Fig. 2</a> drawn in vertical format.</p>
+<p ><a class="anchor" id="fig4"></a> </p><div class="image">
 <object type="image/svg+xml" data="w4d3s5v.svg" height="80" style="pointer-events: none;"></object>
 <div class="caption">
-Fig. 3: A 4-input sorting network in vertical format.</div></div>
+Fig. 3: A 4-input sorting network drawn in vertical format.</div></div>
 <hr  />
 <p ><a class="anchor" id="helpmenu"></a></p><h3>3.4 The <code>Help</code> Menu</h3>
 <div class="image">
@@ -172,7 +181,7 @@ Fig. 3: A 4-input sorting network in vertical format.</div></div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 18 2022 15:12:03 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Generated on Mon Apr 18 2022 17:00:46 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
 </small></address>
 </body>
 </html>

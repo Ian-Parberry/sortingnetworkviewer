@@ -49,22 +49,19 @@ CBubbleSortMax::CBubbleSortMax(const UINT n){
 /// `m_nMatch` has been created and initialized. 
 
 void CBubbleSortMax::CreateComparators(){
-  m_nSize = 0;
-
   for(UINT i=0; i<m_nInputs; i++) //for each level, first half
-    for(UINT j=i&1; j<i+1; j+=2){ //min-most channel used on this level
+    for(UINT j=i&1; j<i+1; j+=2) //min-most channel used on this level
       InsertComparator(i, j, j + 1);
-      m_nSize++;
-    } //for
   
   for(UINT i=0; i<m_nInputs-2; i++){ //for each level, second half
     const UINT k = (m_nInputs&1)^(i&1);
 
     for(UINT j=k; j<m_nInputs-i-2; j+=2){ //min-most channel used on this level   
       InsertComparator(i + m_nInputs, j, j + 1);
-      m_nSize++;
     } //for
   } //for
+
+  ComputeSize(); 
 } //CreateComparators
 
 /// Construct a wide string name from the type of sorting network and the
@@ -98,13 +95,10 @@ CBubbleSortMin::CBubbleSortMin(const UINT n){
 /// `m_nMatch` has been created and initialized. 
 
 void CBubbleSortMin::CreateComparators(){
-  m_nSize = 0;
-
   for(UINT i=0; i<m_nInputs; i++) //for each level, first half
     for(UINT j=i&1; j<i+1; j+=2){ //min-most channel used on this level
       UINT nMin = m_nInputs - j - 2;
       InsertComparator(i, nMin, nMin + 1);
-      m_nSize++;
     } //for
   
   for(UINT i=0; i<m_nInputs-2; i++){ //for each level, second half
@@ -113,9 +107,10 @@ void CBubbleSortMin::CreateComparators(){
     for(UINT j=k; j<m_nInputs-i-2; j+=2){ //min-most channel used on this level   
       UINT nMin = m_nInputs - j - 2;
       InsertComparator(i + m_nInputs, nMin, nMin + 1);
-      m_nSize++;
     } //for
   } //for
+
+  ComputeSize(); 
 } //CreateComparators
 
 /// Construct a wide string name from the type of sorting network and the
@@ -149,13 +144,11 @@ CBubbleSort::CBubbleSort(const UINT n){
 /// `m_nMatch` has been created and initialized. 
 
 void CBubbleSort::CreateComparators(){
-  m_nSize = 0;
-
   for(UINT i=0; i<m_nInputs; i++) //for each level, first half
-    for(UINT j=i&1; j<m_nInputs - 1; j+=2){ //min-most channel used on this level
+    for(UINT j=i&1; j<m_nInputs - 1; j+=2) //min-most channel used on this level
       InsertComparator(i, j, j + 1);
-      m_nSize++;
-    } //for
+
+  ComputeSize(); 
 } //CreateComparators
 
 /// Construct a wide string name from the type of sorting network and the

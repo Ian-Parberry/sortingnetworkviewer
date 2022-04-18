@@ -133,6 +133,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:aa4c1a665b0ed306d2e13d5892da73fba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_comparator_network.html#aa4c1a665b0ed306d2e13d5892da73fba">CreateMatchArray</a> (UINT, UINT)</td></tr>
 <tr class="memdesc:aa4c1a665b0ed306d2e13d5892da73fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create match array.  <a href="class_c_comparator_network.html#aa4c1a665b0ed306d2e13d5892da73fba">More...</a><br /></td></tr>
 <tr class="separator:aa4c1a665b0ed306d2e13d5892da73fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d1ca7f8c2eb4327e952972b0787509c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_comparator_network.html#a4d1ca7f8c2eb4327e952972b0787509c">ComputeSize</a> ()</td></tr>
+<tr class="memdesc:a4d1ca7f8c2eb4327e952972b0787509c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute size.  <a href="class_c_comparator_network.html#a4d1ca7f8c2eb4327e952972b0787509c">More...</a><br /></td></tr>
+<tr class="separator:a4d1ca7f8c2eb4327e952972b0787509c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -178,6 +181,34 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4d1ca7f8c2eb4327e952972b0787509c" name="a4d1ca7f8c2eb4327e952972b0787509c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d1ca7f8c2eb4327e952972b0787509c">&#9670;&nbsp;</a></span>ComputeSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CComparatorNetwork::ComputeSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Compute the size, that is, number of comparators and stores it in <code>m_nSize</code>. Assumes that the matching array <code>m_nMatch</code> has been created and initialized, otherwise it sets <code>m_nSize</code> to zero. </p>
+
+<p class="definition">Definition at line <a class="el" href="_comparator_network_8cpp_source.html#l00183">183</a> of file <a class="el" href="_comparator_network_8cpp_source.html">ComparatorNetwork.cpp</a>.</p>
+
+</div>
+</div>
 <a id="aa4c1a665b0ed306d2e13d5892da73fba" name="aa4c1a665b0ed306d2e13d5892da73fba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa4c1a665b0ed306d2e13d5892da73fba">&#9670;&nbsp;</a></span>CreateMatchArray()</h2>
 
@@ -243,7 +274,7 @@ Protected Attributes</h2></td></tr>
 </blockquote>
 <dl class="section return"><dt>Returns</dt><dd>True if in first normal form. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_comparator_network_8cpp_source.html#l00211">211</a> of file <a class="el" href="_comparator_network_8cpp_source.html">ComparatorNetwork.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_comparator_network_8cpp_source.html#l00226">226</a> of file <a class="el" href="_comparator_network_8cpp_source.html">ComparatorNetwork.cpp</a>.</p>
 
 </div>
 </div>
@@ -263,7 +294,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Reader function for the depth. </p><dl class="section return"><dt>Returns</dt><dd>Depth. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_comparator_network_8cpp_source.html#l00189">189</a> of file <a class="el" href="_comparator_network_8cpp_source.html">ComparatorNetwork.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_comparator_network_8cpp_source.html#l00204">204</a> of file <a class="el" href="_comparator_network_8cpp_source.html">ComparatorNetwork.cpp</a>.</p>
 
 </div>
 </div>
@@ -283,7 +314,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Reader function for the number of inputs. </p><dl class="section return"><dt>Returns</dt><dd>Number of inputs. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_comparator_network_8cpp_source.html#l00182">182</a> of file <a class="el" href="_comparator_network_8cpp_source.html">ComparatorNetwork.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_comparator_network_8cpp_source.html#l00197">197</a> of file <a class="el" href="_comparator_network_8cpp_source.html">ComparatorNetwork.cpp</a>.</p>
 
 </div>
 </div>
@@ -303,7 +334,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Reader function for the size (number of comparators). </p><dl class="section return"><dt>Returns</dt><dd>Size. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_comparator_network_8cpp_source.html#l00196">196</a> of file <a class="el" href="_comparator_network_8cpp_source.html">ComparatorNetwork.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_comparator_network_8cpp_source.html#l00211">211</a> of file <a class="el" href="_comparator_network_8cpp_source.html">ComparatorNetwork.cpp</a>.</p>
 
 </div>
 </div>
@@ -546,7 +577,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 18 2022 15:12:03 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Generated on Mon Apr 18 2022 17:00:46 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
 </small></address>
 </body>
 </html>

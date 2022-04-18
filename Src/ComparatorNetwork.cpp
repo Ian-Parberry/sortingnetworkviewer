@@ -176,6 +176,21 @@ void CComparatorNetwork::CreateMatchArray(UINT nInputs, UINT nDepth){
   } //for
 } //CreateMatchArray
 
+/// Compute the size, that is, number of comparators and stores it in `m_nSize`.
+/// Assumes that the matching array `m_nMatch` has been created and initialized,
+/// otherwise it sets `m_nSize` to zero.
+
+void CComparatorNetwork::ComputeSize(){
+  m_nSize = 0;
+
+  if(m_nMatch)
+    for(UINT i=0; i<m_nDepth; i++){
+      for(UINT j=0; j<m_nInputs; j++)
+        if(m_nMatch[i][j] > j)
+          m_nSize++;
+  } //for
+} //ComputeSize
+
 /// Reader function for the number of inputs.
 /// \return Number of inputs.
 
