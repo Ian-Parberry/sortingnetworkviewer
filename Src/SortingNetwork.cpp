@@ -25,13 +25,20 @@
 
 #include "SortingNetwork.h"
 
-/// Delete the value table `m_nValue` and the Gray code generator.
+/// Delete the value table `m_nValue`, the usage array `m_bUsed`,
+/// and the Gray code generator.
 
 CSortingNetwork::~CSortingNetwork(){
   if(m_nValue){ //safety
     for(UINT i=0; i<m_nDepth; i++)
       delete [] m_nValue[i];
     delete [] m_nValue;
+  } //if
+
+  if(m_bUsed){ //safety
+    for(UINT i=0; i<m_nDepth; i++)
+      delete [] m_bUsed[i];
+    delete [] m_bUsed;
   } //if
 
   delete m_pGrayCode;
@@ -47,6 +54,20 @@ void CSortingNetwork::initValues(const UINT firstlayer, const UINT lastlayer){
       m_nValue[i][j] = 0; //set the value on this channel at that layer to zero
 } //initValues
 
+/// Set the usage flag on every channel to a fixed value.
+/// \param b Value of flag.
+
+ void CSortingNetwork::initUsage(){
+   const bool bFirstNormalForm = FirstNormalForm();
+
+  for(UINT j=0; j<m_nInputs; j++) //for each channel in first layer
+    m_bUsed[0][j] = bFirstNormalForm; //set the value on this channel at that layer to b
+
+  for(UINT i=1; i<m_nDepth; i++) //for each layer after the first
+    for(UINT j=0; j<m_nInputs; j++) //for each channel
+      m_bUsed[i][j] = false; //set the value on this channel at that layer to b
+ } //initUsage
+
 /// Initialize the network for the sorting test, that is, make the
 /// Gray code word for input be all zeros, and the values on every channel at
 /// every level be zero.
@@ -57,6 +78,7 @@ void CSortingNetwork::initSortingTest(){
 
   m_pGrayCode->Initialize(m_nInputs); //initialize the Gray code to all zeros.
   initValues(0, m_nDepth - 1); //initialize the network values to all zeros.
+  initUsage(); //mark all comparators unused
 } //initSortingTest
 
 /// Flip value and propagate down the comparator network.
@@ -72,8 +94,10 @@ UINT CSortingNetwork::flipinput(UINT j, const UINT firstlayer, const UINT lastla
     UINT k = m_nMatch[i][j]; //find the channel to which it is joined via a comparator, if any
     
     if(0 <= k && k < m_nInputs)
-      if((m_nValue[i][k] && j>k) || !(m_nValue[i][k] || j>k))
+      if((m_nValue[i][k] && j>k) || !(m_nValue[i][k] || j>k)){
+        m_bUsed[i][j] = m_bUsed[i][k] = true; //mark both channels used
         j = k;
+      } //if
   } //for
 
   return j;
@@ -104,6 +128,23 @@ bool CSortingNetwork::sorts(){
   return bSorts;
 } //sorts
 
+/// Get number of unused comparators. Assumes that function `sorts()` has
+/// already been run. Returns zero otherwise.
+/// \return Number of unused comparators.
+
+const UINT CSortingNetwork::GetUnused() const{
+  UINT count = 0;
+
+  if(m_bUsed){
+    for(UINT i=0; i<m_nDepth; i++) //for each level
+      for(UINT j=0; j<m_nInputs; j++) //for each channel
+        if(m_nMatch[i][j] > j && !m_bUsed[i][j])
+          count++;
+  } //if
+
+  return count;
+} //GetUnused
+
 /// Create and initialize value array to all zeros. Assumes that `m_nInputs`
 /// and `m_nDepth` have been set to the correct values.
 
@@ -118,6 +159,20 @@ void CSortingNetwork::CreateValueArray(){
   } //for
 } //CreateValueArray
 
+/// Create and initialize usage array to all usde. Assumes that `m_nInputs`
+/// and `m_nDepth` have been set to the correct values.
+
+void CSortingNetwork::CreateUsageArray(){
+  m_bUsed = new bool*[m_nDepth];
+
+  for(UINT i=0; i<m_nDepth; i++){
+    m_bUsed[i] = new bool[m_nInputs];
+
+    for(UINT j=0; j<m_nInputs; j++)
+      m_bUsed[i][j] = true;
+  } //for
+} //CreateUsageArray
+
 /// Read a sorting network and create and initialize the value array `m_nValue`
 /// for use in sorting verification. Uses `CComparatorNetwork::Read()` to do
 /// the heavy lifting.
@@ -126,6 +181,11 @@ void CSortingNetwork::CreateValueArray(){
 
 bool CSortingNetwork::Read(LPWSTR lpwstr){
   const bool ok = CComparatorNetwork::Read(lpwstr); //read from file
-  if(ok)CreateValueArray(); //create and initialize value array to all zeros
+
+  if(ok){
+    CreateValueArray(); //create and initialize value array to all zeros
+    CreateUsageArray(); //create usage array
+  } //if
+
   return ok;
 } //Read

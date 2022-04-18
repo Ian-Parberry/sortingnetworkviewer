@@ -41,6 +41,7 @@ COddEvenSort::COddEvenSort(const UINT log2n):
   CreateMatchArray(m_nInputs, m_nDepth);
   CreateComparators();
   CreateValueArray();
+  CreateUsageArray();
 } //constructor
 
 /// Create the comparators for odd-even sort.

@@ -40,6 +40,7 @@ CPairwiseSort::CPairwiseSort(const UINT log2n){
   CreateMatchArray(m_nInputs, m_nDepth);
   CreateComparators();
   CreateValueArray();
+  CreateUsageArray();
 } //constructor
 
 /// Create the comparators for pairwise sort. Assumes that `m_nInputs` has been

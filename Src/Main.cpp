@@ -30,6 +30,7 @@
 #include "OddEven.h"
 #include "Bitonic.h"
 #include "Pairwise.h"
+#include "Bubblesort.h"
 
 static CMain* g_pMain = nullptr; ///< Pointer to the main class.
 
@@ -88,6 +89,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam){
 
         case IDM_FILE_VERIFY: //verify that it sorts
           g_pMain->Verify();
+          g_pMain->Draw();
+          InvalidateRect(hWnd, nullptr, FALSE);
           break;
 
         case IDM_FILE_QUIT: //so long, farewell, auf weidersehn, goodbye!
@@ -96,20 +99,38 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam){
 
         //---------------------------------------------------
 
+        case IDM_GENERATE_MINBUBBLE: //generate min-bubblesort sorting network 
+          g_pMain->Generate<CBubbleSortMin>();
+          g_pMain->Draw();
+          InvalidateRect(hWnd, nullptr, FALSE);
+          break;
+
+        case IDM_GENERATE_MAXBUBBLE: //generate max-bubblesort sorting network  
+          g_pMain->Generate<CBubbleSortMax>();
+          g_pMain->Draw();
+          InvalidateRect(hWnd, nullptr, FALSE);
+          break;
+
+        case IDM_GENERATE_BUBBLE: //generate bubblesort sorting network  
+          g_pMain->Generate<CBubbleSort>();
+          g_pMain->Draw();
+          InvalidateRect(hWnd, nullptr, FALSE);
+          break;
+
         case IDM_GENERATE_ODDEVEN: //generate odd-even sorting network 
-          g_pMain->Generate<COddEvenSort>();
+          g_pMain->GeneratePowerOf2<COddEvenSort>();
           g_pMain->Draw();
           InvalidateRect(hWnd, nullptr, FALSE);
           break;
 
         case IDM_GENERATE_BITONIC: //generate bitonic sorting network 
-          g_pMain->Generate<CBitonicSort>();
+          g_pMain->GeneratePowerOf2<CBitonicSort>();
           g_pMain->Draw();
           InvalidateRect(hWnd, nullptr, FALSE);
           break;
 
         case IDM_GENERATE_PAIRWISE: //generate pairwise sorting network 
-          g_pMain->Generate<CPairwiseSort>();
+          g_pMain->GeneratePowerOf2<CPairwiseSort>();
           g_pMain->Draw();
           InvalidateRect(hWnd, nullptr, FALSE);
           break;

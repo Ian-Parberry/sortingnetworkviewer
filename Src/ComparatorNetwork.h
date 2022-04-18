@@ -41,6 +41,7 @@
 class CComparatorNetwork{
   protected: 
     UINT** m_nMatch = nullptr; ///< Matchings at each level.
+    bool** m_bUsed = nullptr; ///< Whether comparators are used when sorting.
 
     UINT m_nInputs = 0; ///< Number of inputs.
     UINT m_nDepth = 0; ///< Depth.

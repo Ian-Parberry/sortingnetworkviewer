@@ -81,8 +81,8 @@ Gdiplus::REAL CRenderableComparatorNet::ComputeBitmapHeight(){
 /// \param dest Destination (max) channel.
 /// \param fDist Distance along channel to comparator in pixels.
 
-void CRenderableComparatorNet::DrawComparator( 
-  const UINT src, const UINT dest, const float fDist)
+void CRenderableComparatorNet::DrawComparator(
+  const UINT src, const UINT dest, const float fDist, bool bRed)
 {
   float fSrcy = 0, fDesty = 0, fSrcx = 0, fDestx = 0; //end points for PNG, SVG 
   int vx = 0, vy = 0; //axis for TeX
@@ -112,13 +112,25 @@ void CRenderableComparatorNet::DrawComparator(
 
   switch(m_eExportType){
     case eExport::Png: 
-      if(m_pGraphics && m_pPen && m_pBrush){
-        const float d = m_fDiameter; //shorthand for diameter
+      if(bRed){
+        if(m_pGraphics && m_pRedPen && m_pRedBrush){
+          const float d = m_fDiameter; //shorthand for diameter
 
-        m_pGraphics->FillEllipse(m_pBrush,  fSrcx - r,  fSrcy - r, d, d);
-        m_pGraphics->FillEllipse(m_pBrush, fDestx - r, fDesty - r, d, d);
-        m_pGraphics->DrawLine(m_pPen, fSrcx, fSrcy, fDestx, fDesty);
+          m_pGraphics->FillEllipse(m_pRedBrush,  fSrcx - r,  fSrcy - r, d, d);
+          m_pGraphics->FillEllipse(m_pRedBrush, fDestx - r, fDesty - r, d, d);
+          m_pGraphics->DrawLine(m_pRedPen, fSrcx, fSrcy, fDestx, fDesty);
+        } //if
       } //if
+
+      else{
+        if(m_pGraphics && m_pPen && m_pBrush){
+          const float d = m_fDiameter; //shorthand for diameter
+
+          m_pGraphics->FillEllipse(m_pBrush,  fSrcx - r,  fSrcy - r, d, d);
+          m_pGraphics->FillEllipse(m_pBrush, fDestx - r, fDesty - r, d, d);
+          m_pGraphics->DrawLine(m_pPen, fSrcx, fSrcy, fDestx, fDesty);
+        } //if
+      } //else
     break;
 
     case eExport::Svg:
@@ -156,7 +168,7 @@ void CRenderableComparatorNet::DrawComparators(){
   bool* bUsed = new bool[m_nInputs]; //whether channels are used at the current level
   float fLen = m_fYDelta + m_fYDelta2; //distance along channel
 
-  for(UINT i=0; i<m_nDepth; i++){
+  for(UINT i=0; i<m_nDepth; i++){ //for each level
     for(UINT j=0; j<m_nInputs; j++) //mark all channels unused
       bUsed[j] = false;
 
@@ -171,7 +183,8 @@ void CRenderableComparatorNet::DrawComparators(){
             const UINT dest = m_nMatch[i][j];
 
             if(dest < m_nInputs && dest > j && !bUsed[j]){ //can print without overlap
-              DrawComparator(dest, j, fLen); //draw comparator
+              const bool bRed = !m_bUsed[i][j]; //whether to be drawn red
+              DrawComparator(dest, j, fLen, bRed); //draw comparator
               bPassUsed = bUsed[j] = bUsed[dest] = true; //mark that we've printed it
               j = dest; //so that later comparators can't overlap
             } //if
@@ -180,10 +193,11 @@ void CRenderableComparatorNet::DrawComparators(){
 
         case eDrawStyle::Horizontal:
           for(int j=m_nInputs-1; j>=0; j--){
-            const UINT dest = m_nMatch[i][j];
+            const UINT dest = m_nMatch[i][j]; 
 
             if(dest < m_nInputs && dest < (UINT)j && !bUsed[dest]){ //can print without overlap
-              DrawComparator(j, dest, fLen); //draw comparator
+              const bool bRed = !m_bUsed[i][j]; //whether to be drawn red
+              DrawComparator(j, dest, fLen, bRed); //draw comparator
               bPassUsed = bUsed[j] = bUsed[dest] = true; //mark that we've printed it
               j = dest; //so that later comparators can't overlap
             } //if
@@ -287,15 +301,20 @@ void CRenderableComparatorNet::Draw(const eDrawStyle d){
   m_pGraphics->SetSmoothingMode(Gdiplus::SmoothingModeHighQuality);
   m_pGraphics->Clear(Gdiplus::Color::Transparent);
   m_pPen = new Gdiplus::Pen(Gdiplus::Color::Black);
+  m_pRedPen = new Gdiplus::Pen(Gdiplus::Color::Red);
   m_pPen->SetWidth(m_fPenWidth); 
+  m_pRedPen->SetWidth(m_fPenWidth); 
   m_pBrush = new Gdiplus::SolidBrush(Gdiplus::Color::Black);
+  m_pRedBrush = new Gdiplus::SolidBrush(Gdiplus::Color::Red);
 
   DrawChannels((float)h);
   DrawComparators();
 
   delete m_pGraphics;  m_pGraphics = nullptr; 
   delete m_pPen; m_pPen = nullptr;
+  delete m_pRedPen; m_pRedPen = nullptr;
   delete m_pBrush; m_pBrush = nullptr;
+  delete m_pRedBrush; m_pRedBrush = nullptr;
 } //Draw
 
 /// Export to an PNG file. This simply involves using GDI+ to save the

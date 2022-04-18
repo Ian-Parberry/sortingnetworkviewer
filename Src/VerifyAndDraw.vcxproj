@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="BinaryGrayCode.cpp" />
     <ClCompile Include="Bitonic.cpp" />
+    <ClCompile Include="Bubblesort.cpp" />
     <ClCompile Include="CMain.cpp" />
     <ClCompile Include="ComparatorNetwork.cpp" />
     <ClCompile Include="DialogBox.cpp" />
@@ -36,6 +37,7 @@
   <ItemGroup>
     <ClInclude Include="BinaryGrayCode.h" />
     <ClInclude Include="Bitonic.h" />
+    <ClInclude Include="Bubblesort.h" />
     <ClInclude Include="CMain.h" />
     <ClInclude Include="ComparatorNetwork.h" />
     <ClInclude Include="Defines.h" />

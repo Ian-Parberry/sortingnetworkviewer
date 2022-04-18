@@ -50,13 +50,17 @@ class CSortingNetwork: public CRenderableComparatorNet{
 
     UINT flipinput(UINT j, const UINT firstlayer, const UINT lastlayer); ///< Recompute network values when a bit is changed.
     void initValues(const UINT firstlayer, const UINT lastlayer); ///< Initialize the network values to the all zero input.
+    void initUsage(); ///< Initialize usage array.
     void CreateValueArray(); ///< Make value array.
+    void CreateUsageArray(); ///< Make usage array.
 
   public:
     ~CSortingNetwork(); ///< Destructor.
 
     bool Read(LPWSTR); ///< Read from file.
     bool sorts(); ///< Does it sort?
+    
+    const UINT GetUnused() const; ///< Get number of unused comparators.
 }; //CSortingNetwork
 
 #endif //__SortingNetwork_h__

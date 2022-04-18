@@ -385,8 +385,13 @@ void CreateExportMenu(HMENU hParent){
 void CreateGenerateMenu(HMENU hParent){
   HMENU hMenu = CreateMenu();
   
+  AppendMenuW(hMenu, MF_STRING, IDM_GENERATE_MINBUBBLE,  L"Bubblesort min");
+  AppendMenuW(hMenu, MF_STRING, IDM_GENERATE_MAXBUBBLE,  L"Bubblesort max");
+  AppendMenuW(hMenu, MF_STRING, IDM_GENERATE_BUBBLE,  L"Parallel bubblesort");
+  AppendMenuW(hMenu, MF_SEPARATOR, 0, nullptr);
   AppendMenuW(hMenu, MF_STRING, IDM_GENERATE_ODDEVEN,  L"Odd-even");
   AppendMenuW(hMenu, MF_STRING, IDM_GENERATE_BITONIC,  L"Bitonic");
+  AppendMenuW(hMenu, MF_SEPARATOR, 0, nullptr);
   AppendMenuW(hMenu, MF_STRING, IDM_GENERATE_PAIRWISE, L"Pairwise");
   
   AppendMenuW(hParent, MF_POPUP, (UINT_PTR)hMenu, L"Generate");

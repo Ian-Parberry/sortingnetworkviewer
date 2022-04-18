@@ -44,15 +44,18 @@
 #define IDM_FILE_EXPORT_SVG 5 ///< Menu id for Export SVG.
 #define IDM_FILE_QUIT       6 ///< Menu id for Quit.
 
-#define IDM_GENERATE_ODDEVEN  7 ///< Menu id for Generate odd-even.
-#define IDM_GENERATE_BITONIC  8 ///< Menu id for Generate bitonic.
-#define IDM_GENERATE_PAIRWISE 9 ///< Menu id for Generate pairwise.
+#define IDM_GENERATE_MINBUBBLE 7 ///< Menu id for Generate min-bubblesort.
+#define IDM_GENERATE_MAXBUBBLE 8 ///< Menu id for Generate max-bubblesort.
+#define IDM_GENERATE_BUBBLE    9 ///< Menu id for Generate min-bubblesort.
+#define IDM_GENERATE_ODDEVEN  10 ///< Menu id for Generate odd-even.
+#define IDM_GENERATE_BITONIC  11 ///< Menu id for Generate bitonic.
+#define IDM_GENERATE_PAIRWISE 12 ///< Menu id for Generate pairwise.
 
-#define IDM_VIEW_VERTICAL   10 ///< Menu id for vertical view.
-#define IDM_VIEW_HORIZONTAL 11 ///< Menu id for horizontal view.
+#define IDM_VIEW_VERTICAL   13 ///< Menu id for vertical view.
+#define IDM_VIEW_HORIZONTAL 14 ///< Menu id for horizontal view.
 
-#define IDM_HELP_HELP  12 ///< Menu id for display help.
-#define IDM_HELP_ABOUT 13 ///< Menu id for display About info.
+#define IDM_HELP_HELP  15 ///< Menu id for display help.
+#define IDM_HELP_ABOUT 16 ///< Menu id for display About info.
 
 #pragma endregion Menu IDs
 

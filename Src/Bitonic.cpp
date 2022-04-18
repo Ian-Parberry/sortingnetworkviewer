@@ -46,6 +46,7 @@ CBitonicSort::CBitonicSort(const UINT log2n){
   delete [] vecLevel;
 
   CreateValueArray();
+  CreateUsageArray();
 } //constructor
 
 /// Create an array of `std::vector`s of `CComparator` with one entry for each

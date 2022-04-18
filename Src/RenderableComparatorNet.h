@@ -48,7 +48,9 @@ class CRenderableComparatorNet: public CComparatorNetwork{
 
     Gdiplus::Graphics* m_pGraphics = nullptr; ///< Pointer to graphics object.
     Gdiplus::Pen* m_pPen = nullptr; ///< Pointer to graphics pen.
+    Gdiplus::Pen* m_pRedPen = nullptr; ///< Pointer to graphics pen.
     Gdiplus::SolidBrush* m_pBrush = nullptr; ///< Pointer to graphics brush.
+    Gdiplus::SolidBrush* m_pRedBrush = nullptr; ///< Pointer to graphics brush.
 
     FILE* m_pOutput = nullptr; ///< File pointer.
     eExport m_eExportType = eExport::Png; ///< Export type.
@@ -56,7 +58,7 @@ class CRenderableComparatorNet: public CComparatorNetwork{
     Gdiplus::REAL ComputeBitmapHeight(); ///< Compute bitmap height.
 
     void DrawChannels(const float fLen); ///< Draw channels.
-    void DrawComparator(const UINT, const UINT, const float); ///< Draw a comparator.
+    void DrawComparator(const UINT, const UINT, const float, bool=false); ///< Draw a comparator.
     void DrawComparators(); ///< Draw all comparators.
 
   public:

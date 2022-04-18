@@ -54,6 +54,7 @@ class CMain{
     CMain(const HWND ); ///< Constructor.
     ~CMain(); ///< Destructor.
 
+    template<class t> void GeneratePowerOf2(); ///< Generate sorting network.
     template<class t> void Generate(); ///< Generate sorting network.
     void Read(); ///< Read comparator network from file.
     void Draw(); ///< Draw comparator network to bitmap.

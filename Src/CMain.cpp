@@ -30,6 +30,7 @@
 #include "WindowsHelpers.h"
 #include "DialogBox.h"
 
+#include "Bubblesort.h"
 #include "OddEven.h"
 #include "Bitonic.h"
 #include "Pairwise.h"
@@ -185,11 +186,33 @@ void CMain::Read(){
 
 /// Pop up a custom dialog box asking for the number of inputs. If successful
 /// and in range, then generate a sorting network with that number of inputs.
-/// First round the number of inputs up to the closest power of 2, generate the
-/// sorting network, then prune away unneeded channels and comparators.
 /// \tparam t Class of sorting network to generate.
 
 template<class t> void CMain::Generate(){
+  UINT n = 0; //for number of inputs
+
+  if(SUCCEEDED(CDialogBox().GetNumInputs(m_hWnd, n))){ //got number of inputs
+    delete m_pSortingNetwork; //delete old sorting network
+  
+    t* p = new t(n); //sorting network
+    m_wstrName = p->GetName(); //get name
+    m_pSortingNetwork = p; //this is the new sorting network
+
+    EnableMenus();
+  } //if
+} //Generate
+
+template void CMain::Generate<CBubbleSortMin>(); ///< Generate min-bubblesort.
+template void CMain::Generate<CBubbleSortMax>(); ///< Generate max-bubblesort.
+template void CMain::Generate<CBubbleSort>(); ///< Generate bubblesort.
+
+/// Pop up a custom dialog box asking for the number of inputs. If successful
+/// and in range, then round the number of inputs up to the closest power of 2,
+/// generate a sorting network of that size, then prune away unneeded channels
+/// and comparators.
+/// \tparam t Class of sorting network to generate.
+
+template<class t> void CMain::GeneratePowerOf2(){
   UINT n = 0; //for number of inputs
 
   if(SUCCEEDED(CDialogBox().GetNumInputs(m_hWnd, n))){ //got number of inputs
@@ -202,11 +225,11 @@ template<class t> void CMain::Generate(){
 
     EnableMenus();
   } //if
-} //Generate
+} //GeneratePowerOf2
 
-template void CMain::Generate<COddEvenSort>(); ///< Generate odd-even.
-template void CMain::Generate<CBitonicSort>(); ///< Generate bitonic.
-template void CMain::Generate<CPairwiseSort>(); ///< Generate pairwise.
+template void CMain::GeneratePowerOf2<COddEvenSort>(); ///< Generate odd-even.
+template void CMain::GeneratePowerOf2<CBitonicSort>(); ///< Generate bitonic.
+template void CMain::GeneratePowerOf2<CPairwiseSort>(); ///< Generate pairwise.
 
 /// If a comparator network exists, then draw it to a new bitmap of the
 /// appropriate width and depth. Put a pointer to the bitmap into `m_pBitmap`.
@@ -286,6 +309,11 @@ void CMain::Verify(){
   if(m_pSortingNetwork && m_pSortingNetwork->FirstNormalForm())
     s += " It is in First Normal Form.";
   else s += " It is not in First Normal Form.";
+  
+  const UINT nUnused = m_pSortingNetwork->GetUnused();
+  const std::string strUnused = std::to_string(nUnused);
+
+  s += " There are " + (nUnused == 0? "no": strUnused) + " redundant comparators.";
   
   MessageBox(nullptr, s.c_str(), "Verify", nIcon | MB_OK);
 } //Verify
