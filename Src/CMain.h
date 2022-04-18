@@ -58,7 +58,7 @@ class CMain{
     template<class t> void Generate(); ///< Generate sorting network.
     void Read(); ///< Read comparator network from file.
     void Draw(); ///< Draw comparator network to bitmap.
-    void Verify(); ///< Verify that comparator network sorts.
+    bool Verify(); ///< Verify that comparator network sorts.
 
     void OnPaint(); ///< Paint the client area of the window.
     Gdiplus::Bitmap* GetBitmap(); ///< Get pointer to bitmap.

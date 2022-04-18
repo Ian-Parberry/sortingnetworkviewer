@@ -47,6 +47,8 @@ class CComparatorNetwork{
     UINT m_nDepth = 0; ///< Depth.
     UINT m_nSize = 0; ///< Size.
 
+    bool m_bSorts = false; ///< True if it sorts, false if it doesn't or unknown.
+
     void InsertComparator(UINT, UINT, UINT); ///< Insert comparator.
     void CreateMatchArray(UINT, UINT); ///< Create match array.
     void ComputeSize(); ///< Compute size.

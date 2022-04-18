@@ -112,20 +112,21 @@ bool CSortingNetwork::stillsorts(const int delta){
     m_pGrayCode->m_nZeros + m_pGrayCode->m_nGrayCodeWord[delta] - 1;
 } //stillsorts
 
-/// Check whether sorting network sorts all inputs.
+/// Check whether sorting network sorts all inputs. Set `m_bSorts` to `true`
+/// if it does.
 /// \return true if it sorts.
 
 bool CSortingNetwork::sorts(){ 
   UINT i=0; //index of bit to flip
-  bool bSorts = true; //assume it sorts until we find otherwise
+  m_bSorts = true; //assume it sorts until we find otherwise
   initSortingTest(); //intialize input and values in comparator network to zero
   
-  while(bSorts && i<=m_nInputs){ //bail if it doesn't sort, or we've tried all binary inputs
+  while(m_bSorts && i<=m_nInputs){ //bail if it doesn't sort, or we've tried all binary inputs
     i = m_pGrayCode->Next(); //next bit to flip in Gray code order
-    bSorts = bSorts && (i>m_nInputs || stillsorts(i)); //check whether it still sorts when this bit is flipped
+    m_bSorts = m_bSorts && (i>m_nInputs || stillsorts(i)); //check whether it still sorts when this bit is flipped
   } //while
 
-  return bSorts;
+  return m_bSorts;
 } //sorts
 
 /// Get number of unused comparators. Assumes that function `sorts()` has

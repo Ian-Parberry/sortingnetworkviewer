@@ -268,6 +268,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:ac01eb104432d4a66f0e2130dd2a17a05 inherit pro_attribs_class_c_comparator_network"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_comparator_network.html#ac01eb104432d4a66f0e2130dd2a17a05">m_nSize</a> = 0</td></tr>
 <tr class="memdesc:ac01eb104432d4a66f0e2130dd2a17a05 inherit pro_attribs_class_c_comparator_network"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size.  <a href="class_c_comparator_network.html#ac01eb104432d4a66f0e2130dd2a17a05">More...</a><br /></td></tr>
 <tr class="separator:ac01eb104432d4a66f0e2130dd2a17a05 inherit pro_attribs_class_c_comparator_network"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44f6af909986ea7a47ed95a13cfaeeb2 inherit pro_attribs_class_c_comparator_network"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_comparator_network.html#a44f6af909986ea7a47ed95a13cfaeeb2">m_bSorts</a> = false</td></tr>
+<tr class="memdesc:a44f6af909986ea7a47ed95a13cfaeeb2 inherit pro_attribs_class_c_comparator_network"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if it sorts, false if it doesn't or unknown.  <a href="class_c_comparator_network.html#a44f6af909986ea7a47ed95a13cfaeeb2">More...</a><br /></td></tr>
+<tr class="separator:a44f6af909986ea7a47ed95a13cfaeeb2 inherit pro_attribs_class_c_comparator_network"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><code><a class="el" href="class_c_sorting_network.html" title="Sorting network.">CSortingNetwork</a></code> combines a renderable comparator network with a binary Gray code generator to test whether the comparator network sorts based on the <em>Zero-One Principle</em>, which says that a comparator network is a sorting network if and only if it sorts all inputs made up of only zeros and ones. See Knuth Volume 3 for the details. Using a Gray code generator instead of a standard binary string generator speeds up the test. </p>
@@ -319,7 +322,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Create and initialize usage array to all usde. Assumes that <code>m_nInputs</code> and <code>m_nDepth</code> have been set to the correct values. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sorting_network_8cpp_source.html#l00165">165</a> of file <a class="el" href="_sorting_network_8cpp_source.html">SortingNetwork.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sorting_network_8cpp_source.html#l00166">166</a> of file <a class="el" href="_sorting_network_8cpp_source.html">SortingNetwork.cpp</a>.</p>
 
 </div>
 </div>
@@ -347,7 +350,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Create and initialize value array to all zeros. Assumes that <code>m_nInputs</code> and <code>m_nDepth</code> have been set to the correct values. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sorting_network_8cpp_source.html#l00151">151</a> of file <a class="el" href="_sorting_network_8cpp_source.html">SortingNetwork.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sorting_network_8cpp_source.html#l00152">152</a> of file <a class="el" href="_sorting_network_8cpp_source.html">SortingNetwork.cpp</a>.</p>
 
 </div>
 </div>
@@ -420,7 +423,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Get number of unused comparators. Assumes that function <code><a class="el" href="class_c_sorting_network.html#aa9a29c7ae1b3b304d3deb1338afe0117" title="Does it sort?">sorts()</a></code> has already been run. Returns zero otherwise. </p><dl class="section return"><dt>Returns</dt><dd>Number of unused comparators. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_sorting_network_8cpp_source.html#l00135">135</a> of file <a class="el" href="_sorting_network_8cpp_source.html">SortingNetwork.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sorting_network_8cpp_source.html#l00136">136</a> of file <a class="el" href="_sorting_network_8cpp_source.html">SortingNetwork.cpp</a>.</p>
 
 </div>
 </div>
@@ -563,7 +566,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_c_comparator_network.html#a1ef33f57eebf292516e94279e38f98a1">CComparatorNetwork</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_sorting_network_8cpp_source.html#l00182">182</a> of file <a class="el" href="_sorting_network_8cpp_source.html">SortingNetwork.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sorting_network_8cpp_source.html#l00183">183</a> of file <a class="el" href="_sorting_network_8cpp_source.html">SortingNetwork.cpp</a>.</p>
 
 </div>
 </div>
@@ -581,9 +584,9 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Check whether sorting network sorts all inputs. </p><dl class="section return"><dt>Returns</dt><dd>true if it sorts. </dd></dl>
+<p >Check whether sorting network sorts all inputs. Set <code>m_bSorts</code> to <code>true</code> if it does. </p><dl class="section return"><dt>Returns</dt><dd>true if it sorts. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_sorting_network_8cpp_source.html#l00118">118</a> of file <a class="el" href="_sorting_network_8cpp_source.html">SortingNetwork.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sorting_network_8cpp_source.html#l00119">119</a> of file <a class="el" href="_sorting_network_8cpp_source.html">SortingNetwork.cpp</a>.</p>
 
 </div>
 </div>
@@ -674,7 +677,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 18 2022 17:00:46 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Generated on Mon Apr 18 2022 18:10:14 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
 </small></address>
 </body>
 </html>

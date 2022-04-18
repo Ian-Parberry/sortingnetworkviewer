@@ -88,9 +88,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam){
           break;
 
         case IDM_FILE_VERIFY: //verify that it sorts
-          g_pMain->Verify();
-          g_pMain->Draw();
-          InvalidateRect(hWnd, nullptr, FALSE);
+          if(g_pMain->Verify()){ //redundant comparators trigger redraw
+            g_pMain->Draw();
+            InvalidateRect(hWnd, nullptr, FALSE);
+          } //if
           break;
 
         case IDM_FILE_QUIT: //so long, farewell, auf weidersehn, goodbye!

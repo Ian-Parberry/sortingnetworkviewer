@@ -260,9 +260,13 @@ HRESULT CMain::Export(const eExport t){
 /// If the number of inputs to the sorting network is 30 or larger, the user
 /// is given the option of whether or not to proceed with verification
 /// via a Yes/No dialog box.
+///
+/// \return true if redundant comparators detected (for redraw).
 
-void CMain::Verify(){
-  if(m_pSortingNetwork == nullptr)return; //bail out
+bool CMain::Verify(){
+  if(m_pSortingNetwork == nullptr)return false; //bail and fail
+
+  bool result = false; //result
 
   const std::string strInputs = std::to_string(m_pSortingNetwork->GetNumInputs());
   const std::string strDepth = std::to_string(m_pSortingNetwork->GetDepth());
@@ -305,17 +309,28 @@ void CMain::Verify(){
       " that is not a sorting network.";
     nIcon = MB_ICONERROR;
   } //else
+  
+  //first normal form
 
   if(m_pSortingNetwork && m_pSortingNetwork->FirstNormalForm())
     s += " It is in First Normal Form.";
   else s += " It is not in First Normal Form.";
-  
-  const UINT nUnused = m_pSortingNetwork->GetUnused();
-  const std::string strUnused = std::to_string(nUnused);
 
-  s += " There are " + (nUnused == 0? "no": strUnused) + " redundant comparators.";
+  //redundant comparators
   
+  if(bSorts){
+    const UINT nUnused = m_pSortingNetwork->GetUnused();
+    result = nUnused > 0;
+
+    const std::string strUnused = std::to_string(nUnused);
+
+    s += " There are " + (nUnused == 0? "no": strUnused) + " redundant comparators.";
+  } //if
+
+  //now display the message box and exit
+
   MessageBox(nullptr, s.c_str(), "Verify", nIcon | MB_OK);
+  return result;
 } //Verify
 
 /// Set the draw style and put a checkmark next to the corresponding menu item.

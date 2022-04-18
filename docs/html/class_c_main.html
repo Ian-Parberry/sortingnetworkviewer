@@ -107,9 +107,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a667dcb382232c4f85ce13ae12ce0be8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_main.html#a667dcb382232c4f85ce13ae12ce0be8d">Draw</a> ()</td></tr>
 <tr class="memdesc:a667dcb382232c4f85ce13ae12ce0be8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw comparator network to bitmap.  <a href="class_c_main.html#a667dcb382232c4f85ce13ae12ce0be8d">More...</a><br /></td></tr>
 <tr class="separator:a667dcb382232c4f85ce13ae12ce0be8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd03aaf781da4cbc9641fc8d8d69fc59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_main.html#afd03aaf781da4cbc9641fc8d8d69fc59">Verify</a> ()</td></tr>
-<tr class="memdesc:afd03aaf781da4cbc9641fc8d8d69fc59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that comparator network sorts.  <a href="class_c_main.html#afd03aaf781da4cbc9641fc8d8d69fc59">More...</a><br /></td></tr>
-<tr class="separator:afd03aaf781da4cbc9641fc8d8d69fc59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1f7ec8cd67c298c6659021c48ce66eb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_main.html#af1f7ec8cd67c298c6659021c48ce66eb">Verify</a> ()</td></tr>
+<tr class="memdesc:af1f7ec8cd67c298c6659021c48ce66eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that comparator network sorts.  <a href="class_c_main.html#af1f7ec8cd67c298c6659021c48ce66eb">More...</a><br /></td></tr>
+<tr class="separator:af1f7ec8cd67c298c6659021c48ce66eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae49d2d96b54cef7272d64b77171cffad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_main.html#ae49d2d96b54cef7272d64b77171cffad">OnPaint</a> ()</td></tr>
 <tr class="memdesc:ae49d2d96b54cef7272d64b77171cffad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paint the client area of the window.  <a href="class_c_main.html#ae49d2d96b54cef7272d64b77171cffad">More...</a><br /></td></tr>
 <tr class="separator:ae49d2d96b54cef7272d64b77171cffad"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -451,18 +451,18 @@ template&lt;class t &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_c_main_8cpp_source.html#l00324">324</a> of file <a class="el" href="_c_main_8cpp_source.html">CMain.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_main_8cpp_source.html#l00339">339</a> of file <a class="el" href="_c_main_8cpp_source.html">CMain.cpp</a>.</p>
 
 </div>
 </div>
-<a id="afd03aaf781da4cbc9641fc8d8d69fc59" name="afd03aaf781da4cbc9641fc8d8d69fc59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd03aaf781da4cbc9641fc8d8d69fc59">&#9670;&nbsp;</a></span>Verify()</h2>
+<a id="af1f7ec8cd67c298c6659021c48ce66eb" name="af1f7ec8cd67c298c6659021c48ce66eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1f7ec8cd67c298c6659021c48ce66eb">&#9670;&nbsp;</a></span>Verify()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CMain::Verify </td>
+          <td class="memname">bool CMain::Verify </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -474,9 +474,10 @@ template&lt;class t &gt; </div>
 <p >I. Parberry. "Single-exception sorting networks and the computational complexity of 
 optimal sorting network verification", <em>Mathematical Systems Theory</em>, Vol. 23, No. 1, pp. 81–93, 1990. </p>
 </blockquote>
-<p>If the number of inputs to the sorting network is 30 or larger, the user is given the option of whether or not to proceed with verification via a Yes/No dialog box. </p>
+<p>If the number of inputs to the sorting network is 30 or larger, the user is given the option of whether or not to proceed with verification via a Yes/No dialog box.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if redundant comparators detected (for redraw). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_c_main_8cpp_source.html#l00264">264</a> of file <a class="el" href="_c_main_8cpp_source.html">CMain.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_main_8cpp_source.html#l00266">266</a> of file <a class="el" href="_c_main_8cpp_source.html">CMain.cpp</a>.</p>
 
 </div>
 </div>
@@ -628,7 +629,7 @@ optimal sorting network verification", <em>Mathematical Systems Theory</em>, Vol
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 18 2022 17:00:46 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Generated on Mon Apr 18 2022 18:10:14 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
 </small></address>
 </body>
 </html>

@@ -136,9 +136,17 @@ void CRenderableComparatorNet::DrawComparator(
 
     case eExport::Svg:
       if(m_pOutput){
-        fprintf_s(m_pOutput, "<circle cx=\"%d\" cy=\"%d\"/>", nSrcx,  nSrcy);
-        fprintf_s(m_pOutput, "<circle cx=\"%d\" cy=\"%d\"/>", nDestx, nDesty); 
-        fprintf_s(m_pOutput, "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\"/>\n",
+        fprintf_s(m_pOutput, "<circle ");
+        if(bRed)fprintf_s(m_pOutput, "style=\"fill:red\" ");
+        fprintf_s(m_pOutput, "cx=\"%d\" cy=\"%d\"/>", nSrcx,  nSrcy);
+
+        fprintf_s(m_pOutput, "<circle ");
+        if(bRed)fprintf_s(m_pOutput, "style=\"fill:red\" ");
+        fprintf_s(m_pOutput, "cx=\"%d\" cy=\"%d\"/>", nDestx, nDesty); 
+
+        fprintf_s(m_pOutput, "<line ");
+        if(bRed)fprintf_s(m_pOutput, "style=\"stroke:red\" ");
+        fprintf_s(m_pOutput, "x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\"/>\n",
           nSrcx, nSrcy, nDestx, nDesty);
       } //if
     break;
@@ -184,7 +192,7 @@ void CRenderableComparatorNet::DrawComparators(){
             const UINT dest = m_nMatch[i][j];
 
             if(dest < m_nInputs && dest > j && !bUsed[j]){ //can print without overlap
-              const bool bRed = !m_bUsed[i][j]; //whether to be drawn red
+              const bool bRed = m_bSorts && !m_bUsed[i][j]; //whether to be drawn red
               DrawComparator(dest, j, fLen, bRed); //draw comparator
               bPassUsed = bUsed[j] = bUsed[dest] = true; //mark that we've printed it
               j = dest; //so that later comparators can't overlap
@@ -197,7 +205,7 @@ void CRenderableComparatorNet::DrawComparators(){
             const UINT dest = m_nMatch[i][j]; 
 
             if(dest < m_nInputs && dest < (UINT)j && !bUsed[dest]){ //can print without overlap
-              const bool bRed = !m_bUsed[i][j]; //whether to be drawn red
+              const bool bRed = m_bSorts && !m_bUsed[i][j]; //whether to be drawn red
               DrawComparator(j, dest, fLen, bRed); //draw comparator
               bPassUsed = bUsed[j] = bUsed[dest] = true; //mark that we've printed it
               j = dest; //so that later comparators can't overlap
