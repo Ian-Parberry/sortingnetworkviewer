@@ -80,6 +80,7 @@ Gdiplus::REAL CRenderableComparatorNet::ComputeBitmapHeight(){
 /// \param src Source (min) channel.
 /// \param dest Destination (max) channel.
 /// \param fDist Distance along channel to comparator in pixels.
+/// \param bRed True if comparator is to be drawn red (PNG only).
 
 void CRenderableComparatorNet::DrawComparator(
   const UINT src, const UINT dest, const float fDist, bool bRed)

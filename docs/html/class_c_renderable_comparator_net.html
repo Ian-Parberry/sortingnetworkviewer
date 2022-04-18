@@ -90,11 +90,14 @@ Inheritance diagram for CRenderableComparatorNet:</div>
  <div class="center">
   <img src="class_c_renderable_comparator_net.png" usemap="#CRenderableComparatorNet_map" alt=""/>
   <map id="CRenderableComparatorNet_map" name="CRenderableComparatorNet_map">
-<area href="class_c_comparator_network.html" title="Comparator network." alt="CComparatorNetwork" shape="rect" coords="181,0,352,24"/>
-<area href="class_c_sorting_network.html" title="Sorting network." alt="CSortingNetwork" shape="rect" coords="181,112,352,136"/>
+<area href="class_c_comparator_network.html" title="Comparator network." alt="CComparatorNetwork" shape="rect" coords="452,0,623,24"/>
+<area href="class_c_sorting_network.html" title="Sorting network." alt="CSortingNetwork" shape="rect" coords="452,112,623,136"/>
 <area href="class_c_bitonic_sort.html" title="Batcher&#39;s bitonic sorting network." alt="CBitonicSort" shape="rect" coords="0,168,171,192"/>
-<area href="class_c_odd_even_sort.html" title="Batcher&#39;s odd-even sorting network." alt="COddEvenSort" shape="rect" coords="181,168,352,192"/>
-<area href="class_c_pairwise_sort.html" title="The pairwise sorting network." alt="CPairwiseSort" shape="rect" coords="362,168,533,192"/>
+<area href="class_c_bubble_sort.html" title="Bubblesort." alt="CBubbleSort" shape="rect" coords="181,168,352,192"/>
+<area href="class_c_bubble_sort_max.html" title="Max-bubblesort." alt="CBubbleSortMax" shape="rect" coords="362,168,533,192"/>
+<area href="class_c_bubble_sort_min.html" title="Min-bubblesort." alt="CBubbleSortMin" shape="rect" coords="543,168,714,192"/>
+<area href="class_c_odd_even_sort.html" title="Batcher&#39;s odd-even sorting network." alt="COddEvenSort" shape="rect" coords="724,168,895,192"/>
+<area href="class_c_pairwise_sort.html" title="The pairwise sorting network." alt="CPairwiseSort" shape="rect" coords="905,168,1076,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -149,9 +152,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:abc7a5c7fcaca3842a0db1281f1fad548"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_renderable_comparator_net.html#abc7a5c7fcaca3842a0db1281f1fad548">DrawChannels</a> (const float fLen)</td></tr>
 <tr class="memdesc:abc7a5c7fcaca3842a0db1281f1fad548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw channels.  <a href="class_c_renderable_comparator_net.html#abc7a5c7fcaca3842a0db1281f1fad548">More...</a><br /></td></tr>
 <tr class="separator:abc7a5c7fcaca3842a0db1281f1fad548"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4644779e1398952488c41d36e0d5b0a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_renderable_comparator_net.html#a4644779e1398952488c41d36e0d5b0a8">DrawComparator</a> (const UINT, const UINT, const float)</td></tr>
-<tr class="memdesc:a4644779e1398952488c41d36e0d5b0a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a comparator.  <a href="class_c_renderable_comparator_net.html#a4644779e1398952488c41d36e0d5b0a8">More...</a><br /></td></tr>
-<tr class="separator:a4644779e1398952488c41d36e0d5b0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ccba21661fe42e13b9c9503a4d68e23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_renderable_comparator_net.html#a2ccba21661fe42e13b9c9503a4d68e23">DrawComparator</a> (const UINT, const UINT, const float, bool=false)</td></tr>
+<tr class="memdesc:a2ccba21661fe42e13b9c9503a4d68e23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a comparator.  <a href="class_c_renderable_comparator_net.html#a2ccba21661fe42e13b9c9503a4d68e23">More...</a><br /></td></tr>
+<tr class="separator:a2ccba21661fe42e13b9c9503a4d68e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc1d9eda97a044c9a79f9c892ac9df4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_renderable_comparator_net.html#afc1d9eda97a044c9a79f9c892ac9df4b">DrawComparators</a> ()</td></tr>
 <tr class="memdesc:afc1d9eda97a044c9a79f9c892ac9df4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw all comparators.  <a href="class_c_renderable_comparator_net.html#afc1d9eda97a044c9a79f9c892ac9df4b">More...</a><br /></td></tr>
 <tr class="separator:afc1d9eda97a044c9a79f9c892ac9df4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,9 +195,15 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:aa5ab2dc428af1baddaeb811dc890e674"><td class="memItemLeft" align="right" valign="top">Gdiplus::Pen *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_renderable_comparator_net.html#aa5ab2dc428af1baddaeb811dc890e674">m_pPen</a> = nullptr</td></tr>
 <tr class="memdesc:aa5ab2dc428af1baddaeb811dc890e674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to graphics pen.  <a href="class_c_renderable_comparator_net.html#aa5ab2dc428af1baddaeb811dc890e674">More...</a><br /></td></tr>
 <tr class="separator:aa5ab2dc428af1baddaeb811dc890e674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53d644dd23ed7c0f44176abf63322d42"><td class="memItemLeft" align="right" valign="top">Gdiplus::Pen *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_renderable_comparator_net.html#a53d644dd23ed7c0f44176abf63322d42">m_pRedPen</a> = nullptr</td></tr>
+<tr class="memdesc:a53d644dd23ed7c0f44176abf63322d42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to graphics pen.  <a href="class_c_renderable_comparator_net.html#a53d644dd23ed7c0f44176abf63322d42">More...</a><br /></td></tr>
+<tr class="separator:a53d644dd23ed7c0f44176abf63322d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b144906c32f55b5e44017446d3a8dda"><td class="memItemLeft" align="right" valign="top">Gdiplus::SolidBrush *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_renderable_comparator_net.html#a7b144906c32f55b5e44017446d3a8dda">m_pBrush</a> = nullptr</td></tr>
 <tr class="memdesc:a7b144906c32f55b5e44017446d3a8dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to graphics brush.  <a href="class_c_renderable_comparator_net.html#a7b144906c32f55b5e44017446d3a8dda">More...</a><br /></td></tr>
 <tr class="separator:a7b144906c32f55b5e44017446d3a8dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3123bf1bdcbfefa47757c860926d777"><td class="memItemLeft" align="right" valign="top">Gdiplus::SolidBrush *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_renderable_comparator_net.html#aa3123bf1bdcbfefa47757c860926d777">m_pRedBrush</a> = nullptr</td></tr>
+<tr class="memdesc:aa3123bf1bdcbfefa47757c860926d777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to graphics brush.  <a href="class_c_renderable_comparator_net.html#aa3123bf1bdcbfefa47757c860926d777">More...</a><br /></td></tr>
+<tr class="separator:aa3123bf1bdcbfefa47757c860926d777"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a683677863d4d6159ed6838520a72526b"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_renderable_comparator_net.html#a683677863d4d6159ed6838520a72526b">m_pOutput</a> = nullptr</td></tr>
 <tr class="memdesc:a683677863d4d6159ed6838520a72526b"><td class="mdescLeft">&#160;</td><td class="mdescRight">File pointer.  <a href="class_c_renderable_comparator_net.html#a683677863d4d6159ed6838520a72526b">More...</a><br /></td></tr>
 <tr class="separator:a683677863d4d6159ed6838520a72526b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -205,6 +214,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a0943499f733a2f8738f2a162d74da3fc inherit pro_attribs_class_c_comparator_network"><td class="memItemLeft" align="right" valign="top">UINT **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_comparator_network.html#a0943499f733a2f8738f2a162d74da3fc">m_nMatch</a> = nullptr</td></tr>
 <tr class="memdesc:a0943499f733a2f8738f2a162d74da3fc inherit pro_attribs_class_c_comparator_network"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matchings at each level.  <a href="class_c_comparator_network.html#a0943499f733a2f8738f2a162d74da3fc">More...</a><br /></td></tr>
 <tr class="separator:a0943499f733a2f8738f2a162d74da3fc inherit pro_attribs_class_c_comparator_network"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abae190116131248dbcef808b7f9483f9 inherit pro_attribs_class_c_comparator_network"><td class="memItemLeft" align="right" valign="top">bool **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_comparator_network.html#abae190116131248dbcef808b7f9483f9">m_bUsed</a> = nullptr</td></tr>
+<tr class="memdesc:abae190116131248dbcef808b7f9483f9 inherit pro_attribs_class_c_comparator_network"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether comparators are used when sorting.  <a href="class_c_comparator_network.html#abae190116131248dbcef808b7f9483f9">More...</a><br /></td></tr>
+<tr class="separator:abae190116131248dbcef808b7f9483f9 inherit pro_attribs_class_c_comparator_network"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78a244e17dd9f5f9490554c4d013dda8 inherit pro_attribs_class_c_comparator_network"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_comparator_network.html#a78a244e17dd9f5f9490554c4d013dda8">m_nInputs</a> = 0</td></tr>
 <tr class="memdesc:a78a244e17dd9f5f9490554c4d013dda8 inherit pro_attribs_class_c_comparator_network"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of inputs.  <a href="class_c_comparator_network.html#a78a244e17dd9f5f9490554c4d013dda8">More...</a><br /></td></tr>
 <tr class="separator:a78a244e17dd9f5f9490554c4d013dda8 inherit pro_attribs_class_c_comparator_network"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -291,7 +303,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00274">274</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00289">289</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
 
 </div>
 </div>
@@ -325,12 +337,12 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00211">211</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00226">226</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a4644779e1398952488c41d36e0d5b0a8" name="a4644779e1398952488c41d36e0d5b0a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4644779e1398952488c41d36e0d5b0a8">&#9670;&nbsp;</a></span>DrawComparator()</h2>
+<a id="a2ccba21661fe42e13b9c9503a4d68e23" name="a2ccba21661fe42e13b9c9503a4d68e23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ccba21661fe42e13b9c9503a4d68e23">&#9670;&nbsp;</a></span>DrawComparator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -354,7 +366,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>fDist</em>&#160;</td>
+          <td class="paramname"><em>fDist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>bRed</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -373,11 +391,12 @@ Protected Attributes</h2></td></tr>
     <tr><td class="paramname">src</td><td>Source (min) channel. </td></tr>
     <tr><td class="paramname">dest</td><td>Destination (max) channel. </td></tr>
     <tr><td class="paramname">fDist</td><td>Distance along channel to comparator in pixels. </td></tr>
+    <tr><td class="paramname">bRed</td><td>True if comparator is to be drawn red (PNG only). </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00084">84</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00085">85</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
 
 </div>
 </div>
@@ -403,9 +422,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Draw all comparators. Calls <code><a class="el" href="class_c_renderable_comparator_net.html#a4644779e1398952488c41d36e0d5b0a8" title="Draw a comparator.">DrawComparator()</a></code> once for each comparator. The behaviour of this function depends on the value of <code>m_eExportType</code>. If it is <code>m_eExportType::Png</code>, then we draw the comparators to the bitmap pointed to by <code>m_pBitmap</code> via the graphics object pointed to by <code>m_pGraphics</code>. Otherwise we output the vector graphics commands to draw the comparators (lines and filled circles) to the file pointed to by <code>m_pOutput</code>. </p>
+<p >Draw all comparators. Calls <code><a class="el" href="class_c_renderable_comparator_net.html#a2ccba21661fe42e13b9c9503a4d68e23" title="Draw a comparator.">DrawComparator()</a></code> once for each comparator. The behaviour of this function depends on the value of <code>m_eExportType</code>. If it is <code>m_eExportType::Png</code>, then we draw the comparators to the bitmap pointed to by <code>m_pBitmap</code> via the graphics object pointed to by <code>m_pGraphics</code>. Otherwise we output the vector graphics commands to draw the comparators (lines and filled circles) to the file pointed to by <code>m_pOutput</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00155">155</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00168">168</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
 
 </div>
 </div>
@@ -432,7 +451,7 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>S_OK if export succeeded, otherwise E_FAIL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00306">306</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00326">326</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
 
 </div>
 </div>
@@ -459,7 +478,7 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>S_OK if export succeeded, otherwise E_FAIL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00375">375</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00395">395</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
 
 </div>
 </div>
@@ -486,7 +505,7 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>S_OK if export succeeded, otherwise E_FAIL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00326">326</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00346">346</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
 
 </div>
 </div>
@@ -506,7 +525,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Reader function for bitmap pointer. </p><dl class="section return"><dt>Returns</dt><dd>Pointer to bitmap. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00432">432</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8cpp_source.html#l00452">452</a> of file <a class="el" href="_renderable_comparator_net_8cpp_source.html">RenderableComparatorNet.cpp</a>.</p>
 
 </div>
 </div>
@@ -555,7 +574,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8h_source.html#l00054">54</a> of file <a class="el" href="_renderable_comparator_net_8h_source.html">RenderableComparatorNet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8h_source.html#l00056">56</a> of file <a class="el" href="_renderable_comparator_net_8h_source.html">RenderableComparatorNet.h</a>.</p>
 
 </div>
 </div>
@@ -723,7 +742,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8h_source.html#l00051">51</a> of file <a class="el" href="_renderable_comparator_net_8h_source.html">RenderableComparatorNet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8h_source.html#l00052">52</a> of file <a class="el" href="_renderable_comparator_net_8h_source.html">RenderableComparatorNet.h</a>.</p>
 
 </div>
 </div>
@@ -771,7 +790,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8h_source.html#l00053">53</a> of file <a class="el" href="_renderable_comparator_net_8h_source.html">RenderableComparatorNet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8h_source.html#l00055">55</a> of file <a class="el" href="_renderable_comparator_net_8h_source.html">RenderableComparatorNet.h</a>.</p>
 
 </div>
 </div>
@@ -799,10 +818,58 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aa3123bf1bdcbfefa47757c860926d777" name="aa3123bf1bdcbfefa47757c860926d777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3123bf1bdcbfefa47757c860926d777">&#9670;&nbsp;</a></span>m_pRedBrush</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Gdiplus::SolidBrush* CRenderableComparatorNet::m_pRedBrush = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8h_source.html#l00053">53</a> of file <a class="el" href="_renderable_comparator_net_8h_source.html">RenderableComparatorNet.h</a>.</p>
+
+</div>
+</div>
+<a id="a53d644dd23ed7c0f44176abf63322d42" name="a53d644dd23ed7c0f44176abf63322d42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53d644dd23ed7c0f44176abf63322d42">&#9670;&nbsp;</a></span>m_pRedPen</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Gdiplus::Pen* CRenderableComparatorNet::m_pRedPen = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_renderable_comparator_net_8h_source.html#l00051">51</a> of file <a class="el" href="_renderable_comparator_net_8h_source.html">RenderableComparatorNet.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 15 2022 12:04:38 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Generated on Mon Apr 18 2022 15:12:03 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
 </small></address>
 </body>
 </html>

@@ -90,11 +90,14 @@ Inheritance diagram for CComparatorNetwork:</div>
  <div class="center">
   <img src="class_c_comparator_network.png" usemap="#CComparatorNetwork_map" alt=""/>
   <map id="CComparatorNetwork_map" name="CComparatorNetwork_map">
-<area href="class_c_renderable_comparator_net.html" title="Renderable comparator network." alt="CRenderableComparatorNet" shape="rect" coords="181,56,352,80"/>
-<area href="class_c_sorting_network.html" title="Sorting network." alt="CSortingNetwork" shape="rect" coords="181,112,352,136"/>
+<area href="class_c_renderable_comparator_net.html" title="Renderable comparator network." alt="CRenderableComparatorNet" shape="rect" coords="452,56,623,80"/>
+<area href="class_c_sorting_network.html" title="Sorting network." alt="CSortingNetwork" shape="rect" coords="452,112,623,136"/>
 <area href="class_c_bitonic_sort.html" title="Batcher&#39;s bitonic sorting network." alt="CBitonicSort" shape="rect" coords="0,168,171,192"/>
-<area href="class_c_odd_even_sort.html" title="Batcher&#39;s odd-even sorting network." alt="COddEvenSort" shape="rect" coords="181,168,352,192"/>
-<area href="class_c_pairwise_sort.html" title="The pairwise sorting network." alt="CPairwiseSort" shape="rect" coords="362,168,533,192"/>
+<area href="class_c_bubble_sort.html" title="Bubblesort." alt="CBubbleSort" shape="rect" coords="181,168,352,192"/>
+<area href="class_c_bubble_sort_max.html" title="Max-bubblesort." alt="CBubbleSortMax" shape="rect" coords="362,168,533,192"/>
+<area href="class_c_bubble_sort_min.html" title="Min-bubblesort." alt="CBubbleSortMin" shape="rect" coords="543,168,714,192"/>
+<area href="class_c_odd_even_sort.html" title="Batcher&#39;s odd-even sorting network." alt="COddEvenSort" shape="rect" coords="724,168,895,192"/>
+<area href="class_c_pairwise_sort.html" title="The pairwise sorting network." alt="CPairwiseSort" shape="rect" coords="905,168,1076,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -136,6 +139,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a0943499f733a2f8738f2a162d74da3fc"><td class="memItemLeft" align="right" valign="top">UINT **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_comparator_network.html#a0943499f733a2f8738f2a162d74da3fc">m_nMatch</a> = nullptr</td></tr>
 <tr class="memdesc:a0943499f733a2f8738f2a162d74da3fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matchings at each level.  <a href="class_c_comparator_network.html#a0943499f733a2f8738f2a162d74da3fc">More...</a><br /></td></tr>
 <tr class="separator:a0943499f733a2f8738f2a162d74da3fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abae190116131248dbcef808b7f9483f9"><td class="memItemLeft" align="right" valign="top">bool **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_comparator_network.html#abae190116131248dbcef808b7f9483f9">m_bUsed</a> = nullptr</td></tr>
+<tr class="memdesc:abae190116131248dbcef808b7f9483f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether comparators are used when sorting.  <a href="class_c_comparator_network.html#abae190116131248dbcef808b7f9483f9">More...</a><br /></td></tr>
+<tr class="separator:abae190116131248dbcef808b7f9483f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78a244e17dd9f5f9490554c4d013dda8"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_comparator_network.html#a78a244e17dd9f5f9490554c4d013dda8">m_nInputs</a> = 0</td></tr>
 <tr class="memdesc:a78a244e17dd9f5f9490554c4d013dda8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of inputs.  <a href="class_c_comparator_network.html#a78a244e17dd9f5f9490554c4d013dda8">More...</a><br /></td></tr>
 <tr class="separator:a78a244e17dd9f5f9490554c4d013dda8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -417,6 +423,30 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="abae190116131248dbcef808b7f9483f9" name="abae190116131248dbcef808b7f9483f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abae190116131248dbcef808b7f9483f9">&#9670;&nbsp;</a></span>m_bUsed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool** CComparatorNetwork::m_bUsed = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_comparator_network_8h_source.html#l00044">44</a> of file <a class="el" href="_comparator_network_8h_source.html">ComparatorNetwork.h</a>.</p>
+
+</div>
+</div>
 <a id="a258dff5d270afd420c5ae85b053e4a8d" name="a258dff5d270afd420c5ae85b053e4a8d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a258dff5d270afd420c5ae85b053e4a8d">&#9670;&nbsp;</a></span>m_nDepth</h2>
 
@@ -437,7 +467,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_comparator_network_8h_source.html#l00046">46</a> of file <a class="el" href="_comparator_network_8h_source.html">ComparatorNetwork.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_comparator_network_8h_source.html#l00047">47</a> of file <a class="el" href="_comparator_network_8h_source.html">ComparatorNetwork.h</a>.</p>
 
 </div>
 </div>
@@ -461,7 +491,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_comparator_network_8h_source.html#l00045">45</a> of file <a class="el" href="_comparator_network_8h_source.html">ComparatorNetwork.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_comparator_network_8h_source.html#l00046">46</a> of file <a class="el" href="_comparator_network_8h_source.html">ComparatorNetwork.h</a>.</p>
 
 </div>
 </div>
@@ -509,14 +539,14 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_comparator_network_8h_source.html#l00047">47</a> of file <a class="el" href="_comparator_network_8h_source.html">ComparatorNetwork.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_comparator_network_8h_source.html#l00048">48</a> of file <a class="el" href="_comparator_network_8h_source.html">ComparatorNetwork.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 15 2022 12:04:38 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Generated on Mon Apr 18 2022 15:12:03 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
 </small></address>
 </body>
 </html>

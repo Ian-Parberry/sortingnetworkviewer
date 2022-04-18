@@ -7,10 +7,13 @@ var searchData=
   ['idm_5ffile_5fquit_4',['IDM_FILE_QUIT',['../_windows_helpers_8h.html#a9a7a0891436ce76ac27b86ba302558ed',1,'WindowsHelpers.h']]],
   ['idm_5ffile_5fverify_5',['IDM_FILE_VERIFY',['../_windows_helpers_8h.html#a8c38995042f0c2a236245146463ebe5c',1,'WindowsHelpers.h']]],
   ['idm_5fgenerate_5fbitonic_6',['IDM_GENERATE_BITONIC',['../_windows_helpers_8h.html#a8c082d4d03fc68181119187d23fdff7e',1,'WindowsHelpers.h']]],
-  ['idm_5fgenerate_5foddeven_7',['IDM_GENERATE_ODDEVEN',['../_windows_helpers_8h.html#ae4b3c39b43bcb962042629b06b3d5c7a',1,'WindowsHelpers.h']]],
-  ['idm_5fgenerate_5fpairwise_8',['IDM_GENERATE_PAIRWISE',['../_windows_helpers_8h.html#ad96e77ad647df748fec1031460c0e1e3',1,'WindowsHelpers.h']]],
-  ['idm_5fhelp_5fabout_9',['IDM_HELP_ABOUT',['../_windows_helpers_8h.html#ae6f93574b34e7fa677a9cb2e63f94bd1',1,'WindowsHelpers.h']]],
-  ['idm_5fhelp_5fhelp_10',['IDM_HELP_HELP',['../_windows_helpers_8h.html#aba5b0e56f9fc089fedb152863012cbfc',1,'WindowsHelpers.h']]],
-  ['idm_5fview_5fhorizontal_11',['IDM_VIEW_HORIZONTAL',['../_windows_helpers_8h.html#ac0cd9a95a50c3edca5473ddb86396163',1,'WindowsHelpers.h']]],
-  ['idm_5fview_5fvertical_12',['IDM_VIEW_VERTICAL',['../_windows_helpers_8h.html#ae2245e95a287bc4d216e68df1542f90f',1,'WindowsHelpers.h']]]
+  ['idm_5fgenerate_5fbubble_7',['IDM_GENERATE_BUBBLE',['../_windows_helpers_8h.html#a7b90245c1792cc20d24a47aa15d8e9fc',1,'WindowsHelpers.h']]],
+  ['idm_5fgenerate_5fmaxbubble_8',['IDM_GENERATE_MAXBUBBLE',['../_windows_helpers_8h.html#a3fe081f3f8bacadf768135b819501c35',1,'WindowsHelpers.h']]],
+  ['idm_5fgenerate_5fminbubble_9',['IDM_GENERATE_MINBUBBLE',['../_windows_helpers_8h.html#a2cb4417e3c0c529116d73655bd2fe87d',1,'WindowsHelpers.h']]],
+  ['idm_5fgenerate_5foddeven_10',['IDM_GENERATE_ODDEVEN',['../_windows_helpers_8h.html#ae4b3c39b43bcb962042629b06b3d5c7a',1,'WindowsHelpers.h']]],
+  ['idm_5fgenerate_5fpairwise_11',['IDM_GENERATE_PAIRWISE',['../_windows_helpers_8h.html#ad96e77ad647df748fec1031460c0e1e3',1,'WindowsHelpers.h']]],
+  ['idm_5fhelp_5fabout_12',['IDM_HELP_ABOUT',['../_windows_helpers_8h.html#ae6f93574b34e7fa677a9cb2e63f94bd1',1,'WindowsHelpers.h']]],
+  ['idm_5fhelp_5fhelp_13',['IDM_HELP_HELP',['../_windows_helpers_8h.html#aba5b0e56f9fc089fedb152863012cbfc',1,'WindowsHelpers.h']]],
+  ['idm_5fview_5fhorizontal_14',['IDM_VIEW_HORIZONTAL',['../_windows_helpers_8h.html#ac0cd9a95a50c3edca5473ddb86396163',1,'WindowsHelpers.h']]],
+  ['idm_5fview_5fvertical_15',['IDM_VIEW_VERTICAL',['../_windows_helpers_8h.html#ae2245e95a287bc4d216e68df1542f90f',1,'WindowsHelpers.h']]]
 ];
