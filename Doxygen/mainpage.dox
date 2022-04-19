@@ -5,6 +5,14 @@
 /// 1. Introduction
 /// ------------
 ///
+/// This sorting network drawing and verification tool, 
+/// the source code of which is 
+/// written and maintained by
+/// [Ian Parberry](https://ianparberry.com), can
+/// generate instances of common sorting networks or load them from a text file,
+/// display them in a window, and
+/// export the image to a file in bitmap or vector graphic formats.
+///
 /// A _comparator network_ consists of a fixed number of _channels_ that carry
 /// scalar values from some strongly ordered set (usually integers or floating point
 /// numbers), and _comparators_ that connect pairs of channels, swapping the values on
@@ -12,29 +20,20 @@
 /// all inputs are called _sorting networks_. See the 
 /// [Wikipedia page](https://en.wikipedia.org/wiki/Sorting_network) for more information.
 ///
-/// The source code for this sorting network drawing and verification tool, 
-/// written and maintained by
-/// [Ian Parberry](https://ianparberry.com), can
-/// load comparator networks from a text file or generate instances of the
-/// bubblesort, odd-even, bitonic, and pairwise sorting networks.
 /// Comparator network are typically drawn with the channels running
 /// horizontally and the comparators running vertically. 
-/// \ref fig1 "Fig. 1"
+/// For example, \ref fig1 "Fig. 1"
 /// shows a 16-input sorting network.
-///
-/// \anchor fig1
-///
-/// \image html knuth16.svg "Fig. 1: A 16-input sorting network." width=35% 
-///
 /// The comparators route the
 /// smaller of the values on its channels to the upper of the two channels
 /// that it is connected to, and the larger of the two values to the lower channel. 
 /// A comparator network can be be tested to verify that it is a sorting network,
 /// that is, whether the outputs of the sorting network are in non-descending order
 /// from top to bottom. 
-/// 
-/// A comparator network can be exported as a `PNG` file, an `SVG` file, or a `TeX` file
-/// (see \ref export "Section 3.1.3" for more information).
+///
+/// \anchor fig1
+///
+/// \image html knuth16.svg "Fig. 1: A 16-input sorting network." width=35% 
 ///
 /// The remainder of this page is divided into 3 sections.
 /// \ref section2 "Section 2" gives an overview of the code.
@@ -70,7 +69,7 @@
 /// 3. The Controls
 /// ---------------
 ///
-/// The menu bar at the top of the application window has four drop-down menus,
+/// The menu bar at the top of the program window has four drop-down menus,
 /// \ref filemenu "File", 
 /// \ref generatemenu "Generate", 
 /// \ref viewmenu "View", and 
@@ -141,7 +140,7 @@
 /// Clicking on the `No` button will abort the test. Clicking on the `Yes` button will
 /// allow the test to proceed. Be aware that if it takes too long, then 
 /// the only way to cancel it 
-/// will be to quit the application by clicking several times on the standard red x
+/// will be to quit the program by clicking several times on the standard red x
 /// button at top-right of the window. 
 ///
 /// \image html proceed.png width=40%
@@ -183,7 +182,7 @@
 /// \anchor quit
 /// #### 3.1.4 `Quit`
 /// 
-/// Selecting `Quit` will exit the application.
+/// Selecting `Quit` will exit the program.
 ///
 ///
 /// \anchor generatemenu
@@ -317,20 +316,59 @@
 /// The repository contains 11 sample comparator network files.
 /// The input format is described in \ref open "Section 3.1.1".
 ///
-/// 1. `bad-input.txt`: This is an example of a bad input file, for testing purposes only.
-/// 2. `does-not-sort.txt`: This comparator network does not sort.
-/// 3. `knuth16.txt`: A 16-input sorting network of depth 9 and size 61,
+/// ### 4.1 `bad-input.txt`
+/// An example of a bad input file for testing purposes.
+///
+///       0 1 2 3
+///       0 2 foo 3
+///       1 2
+///
+/// ### 4.2 `does-not-sort.txt`: 
+/// A 16-input comparator network does not sort
+/// obtained from `knuth16.txt` below by deleting a comparator.
+///
+/// ### 4.3 `knuth16.txt`
+/// A 16-input sorting network of depth 9 and size 61
 /// shown in \ref fig1 "Fig. 1".
-/// 4. `w4d3s5.txt`: A 4-input sorting network of depth 3 and size 5, shown
+///
+/// ### 4.4 `w4d3s5.txt`
+/// A 4-input sorting network of depth 3 and size 5 shown
 /// in \ref fig2 "Fig. 2".
-/// 5. `w5d5s8.txt`: A 5-input sorting network of depth 5 and size 8.
-/// 6. `w6d5s12.txt`: A 6-input sorting network of depth 5 and size 12.
-/// 7. `w7d6s16.txt`: A 7-input sorting network of depth 6 and size 16.
-/// 8. `w8d6s19.txt`: An 8-input sorting network of depth 6 and size 19.
-/// 9. `w9d7s27.txt`: A 9-input sorting network of depth 7 and size 27.
-/// 10. `w10d7s31.txt`: A 10-input sorting network of depth 7 and size 31.
-/// 11. `w10d7s32.txt`: A 10-input sorting network of depth 7 and size 32,
-/// shown in \ref fig3 "Fig. 3".
-/// This sorting network is `w10d7s31.txt` plus a redundant comparator.
+///
+/// ### 4.5 `w5d5s8.txt`
+/// A 5-input sorting network of depth 5 and size 8.
+///
+/// \image html w5d5s8.svg height=60
+///
+/// ### 4.6 `w6d5s12.txt`
+/// A 6-input sorting network of depth 5 and size 12.
+///
+/// \image html w6d5s12.svg height=75
+///
+/// ### 4.7 `w7d6s16.txt`
+/// A 7-input sorting network of depth 6 and size 16.
+///
+/// \image html w7d6s16.svg height=90
+///
+/// ### 4.8 `w8d6s19.txt`
+/// An 8-input sorting network of depth 6 and size 19.
+///
+/// \image html w8d6s19.svg height=105
+///
+/// ### 4.9 `w9d7s27.txt`
+/// A 9-input sorting network of depth 7 and size 27.
+///
+/// \image html w9d7s27.svg height=120
+///
+/// ### 4.10 `w10d7s31.txt`
+/// A 10-input sorting network of depth 7 and size 31.
+///
+/// \image html w10d7s31.svg height=135
+///
+/// ### 4.11 `w10d7s32.txt`
+/// A 10-input sorting network of depth 7 and size 32
+/// obtained by inserting a redundant comparator (shown in red in \ref fig3 "Fig. 3")
+/// into `w10d7s31.txt` above
+.
 
  

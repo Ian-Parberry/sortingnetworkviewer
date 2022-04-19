@@ -75,21 +75,20 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p ><a class="anchor" id="section1"></a> </p><h2>1. Introduction </h2>
+<p >This sorting network drawing and verification tool, the source code of which is written and maintained by <a href="https://ianparberry.com">Ian Parberry</a>, can generate instances of common sorting networks or load them from a text file, display them in a window, and export the image to a file in bitmap or vector graphic formats.</p>
 <p >A <em>comparator network</em> consists of a fixed number of <em>channels</em> that carry scalar values from some strongly ordered set (usually integers or floating point numbers), and <em>comparators</em> that connect pairs of channels, swapping the values on the channels if they are not in a desired order. Comparator networks that sort all inputs are called <em>sorting networks</em>. See the <a href="https://en.wikipedia.org/wiki/Sorting_network">Wikipedia page</a> for more information.</p>
-<p >The source code for this sorting network drawing and verification tool, written and maintained by <a href="https://ianparberry.com">Ian Parberry</a>, can load comparator networks from a text file or generate instances of the bubblesort, odd-even, bitonic, and pairwise sorting networks. Comparator network are typically drawn with the channels running horizontally and the comparators running vertically. <a class="el" href="index.html#fig1">Fig. 1</a> shows a 16-input sorting network.</p>
+<p >Comparator network are typically drawn with the channels running horizontally and the comparators running vertically. For example, <a class="el" href="index.html#fig1">Fig. 1</a> shows a 16-input sorting network. The comparators route the smaller of the values on its channels to the upper of the two channels that it is connected to, and the larger of the two values to the lower channel. A comparator network can be be tested to verify that it is a sorting network, that is, whether the outputs of the sorting network are in non-descending order from top to bottom.</p>
 <p ><a class="anchor" id="fig1"></a> </p><div class="image">
 <object type="image/svg+xml" data="knuth16.svg" width="35%" style="pointer-events: none;"></object>
 <div class="caption">
 Fig. 1: A 16-input sorting network.</div></div>
-<p >The comparators route the smaller of the values on its channels to the upper of the two channels that it is connected to, and the larger of the two values to the lower channel. A comparator network can be be tested to verify that it is a sorting network, that is, whether the outputs of the sorting network are in non-descending order from top to bottom.</p>
-<p >A comparator network can be exported as a <code>PNG</code> file, an <code>SVG</code> file, or a <code>TeX</code> file (see <a class="el" href="index.html#export">Section 3.1.3</a> for more information).</p>
 <p >The remainder of this page is divided into 3 sections. <a class="el" href="index.html#section2">Section 2</a> gives an overview of the code. <a class="el" href="index.html#section3">Section 3</a> describes the controls, which are contained in the menu bar. <a class="el" href="index.html#section4">Section 4</a> lists the sample input files provided, each with a brief description.</p>
 <hr  />
 <p ><a class="anchor" id="section2"></a> </p><h2>2. Code Overview </h2>
 <p >It is assumed that the reader is familiar with the basics of Windows programming such as <code>WinMain</code>, the Window procedure, message passing, and drop-down menus. <code><a class="el" href="_main_8cpp.html" title="The window procedure WndProc(), and wWinMain().">Main.cpp</a></code> contains the mandatory Windows functions <code><a class="el" href="_main_8cpp.html#ad7483c50ba0ceb8cee64426d4e7e9bb3" title="Winmain.">wWinMain()</a></code> and a Window procedure <code><a class="el" href="_main_8cpp.html#a30a1e3b0304f1b083637664cbda94e72" title="Window procedure.">WndProc()</a></code>, which use a single global variable <code>static CMain* g_pMain</code>. Most of the other gnarly Windows-specific code, which used the <code>Win32</code> API, is hidden away in <code><a class="el" href="_windows_helpers_8cpp.html" title="Code for some helpful Windows-specific functions.">WindowsHelpers.cpp</a></code> and <code><a class="el" href="_windows_helpers_8cpp.html" title="Code for some helpful Windows-specific functions.">WindowsHelpers.cpp</a></code>. <code>Gdi+</code> is used for the graphics. The main class is <code><a class="el" href="class_c_main.html" title="The main class.">CMain</a></code>, which encapsulates the main body of the code in the approved object-oriented fashion.</p>
 <hr  />
 <p ><a class="anchor" id="section3"></a> </p><h2>3. The Controls </h2>
-<p >The menu bar at the top of the application window has four drop-down menus, <a class="el" href="index.html#filemenu">File</a>, <a class="el" href="index.html#generatemenu">Generate</a>, <a class="el" href="index.html#viewmenu">View</a>, and <a class="el" href="index.html#helpmenu">Help</a>.</p>
+<p >The menu bar at the top of the program window has four drop-down menus, <a class="el" href="index.html#filemenu">File</a>, <a class="el" href="index.html#generatemenu">Generate</a>, <a class="el" href="index.html#viewmenu">View</a>, and <a class="el" href="index.html#helpmenu">Help</a>.</p>
 <p ><a class="anchor" id="filemenu"></a> </p><h3>3.1 The <code>File</code> Menu</h3>
 <div class="image">
 <img src="FileMenu.png" alt=""/>
@@ -113,7 +112,7 @@ optimal sorting network verification", <em>Mathematical Systems Theory</em>, Vol
 <p >I. Parberry, "On the computational complexity of optimal sorting network 
 verification", in Parle91, Proceedings of Parallel Architectures and Languages Europe, pp. 252-269, 1991. </p>
 </blockquote>
-<p>You will be warned if the number of inputs to the sorting network is 30 or larger via the following dialog box. Clicking on the <code>No</code> button will abort the test. Clicking on the <code>Yes</code> button will allow the test to proceed. Be aware that if it takes too long, then the only way to cancel it will be to quit the application by clicking several times on the standard red x button at top-right of the window.</p>
+<p>You will be warned if the number of inputs to the sorting network is 30 or larger via the following dialog box. Clicking on the <code>No</code> button will abort the test. Clicking on the <code>Yes</code> button will allow the test to proceed. Be aware that if it takes too long, then the only way to cancel it will be to quit the program by clicking several times on the standard red x button at top-right of the window.</p>
 <div class="image">
 <img src="proceed.png" alt="" width="40%"/>
 </div>
@@ -137,7 +136,7 @@ Fig 3. A sorting network with a redundant comparator.</div></div>
 </div><!-- fragment --></li>
 </ol>
 <p ><a class="anchor" id="quit"></a></p><h4>3.1.4 <code>Quit</code></h4>
-<p >Selecting <code>Quit</code> will exit the application.</p>
+<p >Selecting <code>Quit</code> will exit the program.</p>
 <p ><a class="anchor" id="generatemenu"></a></p><h3>3.2 The <code>Generate</code> Menu</h3>
 <div class="image">
 <img src="GenerateMenu.png" alt=""/>
@@ -194,24 +193,53 @@ Fig. 6: A 4-input sorting network drawn in vertical format.</div></div>
 <hr  />
 <p ><a class="anchor" id="section4"></a> </p><h2>4. Sorting Network Files </h2>
 <p >The repository contains 11 sample comparator network files. The input format is described in <a class="el" href="index.html#open">Section 3.1.1</a>.</p>
-<ol type="1">
-<li><code>bad-input.txt</code>: This is an example of a bad input file, for testing purposes only.</li>
-<li><code>does-not-sort.txt</code>: This comparator network does not sort.</li>
-<li><code>knuth16.txt</code>: A 16-input sorting network of depth 9 and size 61, shown in <a class="el" href="index.html#fig1">Fig. 1</a>.</li>
-<li><code>w4d3s5.txt</code>: A 4-input sorting network of depth 3 and size 5, shown in <a class="el" href="index.html#fig2">Fig. 2</a>.</li>
-<li><code>w5d5s8.txt</code>: A 5-input sorting network of depth 5 and size 8.</li>
-<li><code>w6d5s12.txt</code>: A 6-input sorting network of depth 5 and size 12.</li>
-<li><code>w7d6s16.txt</code>: A 7-input sorting network of depth 6 and size 16.</li>
-<li><code>w8d6s19.txt</code>: An 8-input sorting network of depth 6 and size 19.</li>
-<li><code>w9d7s27.txt</code>: A 9-input sorting network of depth 7 and size 27.</li>
-<li><code>w10d7s31.txt</code>: A 10-input sorting network of depth 7 and size 31.</li>
-<li><code>w10d7s32.txt</code>: A 10-input sorting network of depth 7 and size 32, shown in <a class="el" href="index.html#fig3">Fig. 3</a>. This sorting network is <code>w10d7s31.txt</code> plus a redundant comparator. </li>
-</ol>
+<h3>4.1 <code>bad-input.txt</code></h3>
+<p >An example of a bad input file for testing purposes. </p><pre class="fragment">  0 1 2 3
+  0 2 foo 3
+  1 2
+</pre> <h3>4.2 <code>does-not-sort.txt</code>:</h3>
+<p >A 16-input comparator network does not sort obtained from <code>knuth16.txt</code> below by deleting a comparator.</p>
+<h3>4.3 <code>knuth16.txt</code></h3>
+<p >A 16-input sorting network of depth 9 and size 61 shown in <a class="el" href="index.html#fig1">Fig. 1</a>.</p>
+<h3>4.4 <code>w4d3s5.txt</code></h3>
+<p >A 4-input sorting network of depth 3 and size 5 shown in <a class="el" href="index.html#fig2">Fig. 2</a>.</p>
+<h3>4.5 <code>w5d5s8.txt</code></h3>
+<p >A 5-input sorting network of depth 5 and size 8.</p>
+<div class="image">
+<object type="image/svg+xml" data="w5d5s8.svg" height="60" style="pointer-events: none;"></object>
+</div>
+<h3>4.6 <code>w6d5s12.txt</code></h3>
+<p >A 6-input sorting network of depth 5 and size 12.</p>
+<div class="image">
+<object type="image/svg+xml" data="w6d5s12.svg" height="75" style="pointer-events: none;"></object>
+</div>
+<h3>4.7 <code>w7d6s16.txt</code></h3>
+<p >A 7-input sorting network of depth 6 and size 16.</p>
+<div class="image">
+<object type="image/svg+xml" data="w7d6s16.svg" height="90" style="pointer-events: none;"></object>
+</div>
+<h3>4.8 <code>w8d6s19.txt</code></h3>
+<p >An 8-input sorting network of depth 6 and size 19.</p>
+<div class="image">
+<object type="image/svg+xml" data="w8d6s19.svg" height="105" style="pointer-events: none;"></object>
+</div>
+<h3>4.9 <code>w9d7s27.txt</code></h3>
+<p >A 9-input sorting network of depth 7 and size 27.</p>
+<div class="image">
+<object type="image/svg+xml" data="w9d7s27.svg" height="120" style="pointer-events: none;"></object>
+</div>
+<h3>4.10 <code>w10d7s31.txt</code></h3>
+<p >A 10-input sorting network of depth 7 and size 31.</p>
+<div class="image">
+<object type="image/svg+xml" data="w10d7s31.svg" height="135" style="pointer-events: none;"></object>
+</div>
+<h3>4.11 <code>w10d7s32.txt</code></h3>
+<p >A 10-input sorting network of depth 7 and size 32 obtained by inserting a redundant comparator (shown in red in <a class="el" href="index.html#fig3">Fig. 3</a>) into <code>w10d7s31.txt</code> above </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 19 2022 13:29:40 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Generated on Tue Apr 19 2022 15:41:12 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
 </small></address>
 </body>
 </html>

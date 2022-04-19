@@ -37,5 +37,5 @@ var searchData=
   ['m_5fwstrname_34',['m_wstrName',['../class_c_main.html#a56e1737e4272d473c587dc47f6c671a3',1,'CMain']]],
   ['main_2ecpp_35',['Main.cpp',['../_main_8cpp.html',1,'']]],
   ['makeallminmax_36',['MakeAllMinMax',['../class_c_bitonic_sort.html#a097956351bb22ec0eb4e2b8f7d4f6634',1,'CBitonicSort']]],
-  ['mindragrect_37',['MinDragRect',['../_windows_helpers_8cpp.html#a2e1b4b4e50563750e204977f3b63d68c',1,'MinDragRect(HWND hwnd, WPARAM wParam, RECT *pRect, int n):&#160;WindowsHelpers.cpp'],['../_windows_helpers_8h.html#ac02fa7e61ecb0cc9eba6f088df0d8498',1,'MinDragRect(HWND, WPARAM, RECT *, int):&#160;WindowsHelpers.cpp']]]
+  ['mindragrect_37',['MinDragRect',['../_windows_helpers_8cpp.html#a010f230fb7ceca79bfd5e3a94e68865b',1,'MinDragRect(HWND hwnd, WPARAM wParam, RECT *pRect, int w, int h):&#160;WindowsHelpers.cpp'],['../_windows_helpers_8h.html#aa253cf083b2e5ebb3e9b56a95add5231',1,'MinDragRect(HWND, WPARAM, RECT *, int, int):&#160;WindowsHelpers.cpp']]]
 ];
