@@ -131,7 +131,7 @@ CBubbleSort::CBubbleSort(const UINT n){
   if(n < 2)return; //safety
 
   m_nInputs = n;
-  m_nDepth = n;
+  m_nDepth = (n == 2)? 1: n;
 
   CreateMatchArray(m_nInputs, m_nDepth);
   CreateComparators();
