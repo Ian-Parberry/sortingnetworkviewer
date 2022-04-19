@@ -74,7 +74,7 @@ $(function() {
   <div class="headertitle"><div class="title">Sorting Network Verify and Draw </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2>1. Introduction </h2>
+<div class="textblock"><p ><a class="anchor" id="section1"></a> </p><h2>1. Introduction </h2>
 <p >A <em>comparator network</em> consists of a fixed number of <em>channels</em> that carry scalar values from some strongly ordered set (usually integers or floating point numbers), and <em>comparators</em> that connect pairs of channels, swapping the values on the channels if they are not in a desired order. Comparator networks that sort all inputs are called <em>sorting networks</em>. See the <a href="https://en.wikipedia.org/wiki/Sorting_network">Wikipedia page</a> for more information.</p>
 <p >The source code for this sorting network drawing and verification tool, written and maintained by <a href="https://ianparberry.com">Ian Parberry</a>, can load comparator networks from a text file or generate instances of the bubblesort, odd-even, bitonic, and pairwise sorting networks. Comparator network are typically drawn with the channels running horizontally and the comparators running vertically. <a class="el" href="index.html#fig1">Fig. 1</a> shows a 16-input sorting network.</p>
 <p ><a class="anchor" id="fig1"></a> </p><div class="image">
@@ -83,12 +83,14 @@ $(function() {
 Fig. 1: A 16-input sorting network.</div></div>
 <p >The comparators route the smaller of the values on its channels to the upper of the two channels that it is connected to, and the larger of the two values to the lower channel. A comparator network can be be tested to verify that it is a sorting network, that is, whether the outputs of the sorting network are in non-descending order from top to bottom.</p>
 <p >A comparator network can be exported as a <code>PNG</code> file, an <code>SVG</code> file, or a <code>TeX</code> file (see <a class="el" href="index.html#export">Section 3.1.3</a> for more information).</p>
-<h2>2. Code Overview </h2>
-<p >It is assumed that the reader is familiar with the basics of Windows programming such as <code>WinMain</code>, the Window procedure, message passing, and drop-down menus. <code><a class="el" href="_main_8cpp.html" title="The window procedure WndProc(), and wWinMain().">Main.cpp</a></code> contains the mandatory Windows functions <code><a class="el" href="_main_8cpp.html#ad7483c50ba0ceb8cee64426d4e7e9bb3" title="Winmain.">wWinMain()</a></code> and a Window procedure <code><a class="el" href="_main_8cpp.html#a30a1e3b0304f1b083637664cbda94e72" title="Window procedure.">WndProc()</a></code>, which use a single global variable <code>static CMain* g_pMain</code>. Most of the other gnarly Windows-specific code, which used the <code>Win32</code> API, is hidden away in <code><a class="el" href="_windows_helpers_8cpp.html" title="Code for some helpful Windows-specific functions.">WindowsHelpers.cpp</a></code> and <code><a class="el" href="_windows_helpers_8cpp.html" title="Code for some helpful Windows-specific functions.">WindowsHelpers.cpp</a></code>. <code>Gdi+</code> is used for the graphics. The main class is <code><a class="el" href="class_c_main.html" title="The main class.">CMain</a></code>, which encapsulates the main body of the code in the approved object-oriented fashion.</p>
-<h2>3. The Controls </h2>
-<p >The menu bar at the top of the application window has four drop-down menus, <a class="el" href="index.html#filemenu">File</a>, <a class="el" href="index.html#generatemenu">Generate</a>, <a class="el" href="index.html#viewmenu">View</a>, and <a class="el" href="index.html#helpmenu">Help</a>.</p>
+<p >The remainder of this page is divided into 3 sections. <a class="el" href="index.html#section2">Section 2</a> gives an overview of the code. <a class="el" href="index.html#section3">Section 3</a> describes the controls, which are contained in the menu bar. <a class="el" href="index.html#section4">Section 4</a> lists the sample input files provided, each with a brief description.</p>
 <hr  />
-<p ><a class="anchor" id="filemenu"></a></p><h3>3.1 The <code>File</code> Menu</h3>
+<p ><a class="anchor" id="section2"></a> </p><h2>2. Code Overview </h2>
+<p >It is assumed that the reader is familiar with the basics of Windows programming such as <code>WinMain</code>, the Window procedure, message passing, and drop-down menus. <code><a class="el" href="_main_8cpp.html" title="The window procedure WndProc(), and wWinMain().">Main.cpp</a></code> contains the mandatory Windows functions <code><a class="el" href="_main_8cpp.html#ad7483c50ba0ceb8cee64426d4e7e9bb3" title="Winmain.">wWinMain()</a></code> and a Window procedure <code><a class="el" href="_main_8cpp.html#a30a1e3b0304f1b083637664cbda94e72" title="Window procedure.">WndProc()</a></code>, which use a single global variable <code>static CMain* g_pMain</code>. Most of the other gnarly Windows-specific code, which used the <code>Win32</code> API, is hidden away in <code><a class="el" href="_windows_helpers_8cpp.html" title="Code for some helpful Windows-specific functions.">WindowsHelpers.cpp</a></code> and <code><a class="el" href="_windows_helpers_8cpp.html" title="Code for some helpful Windows-specific functions.">WindowsHelpers.cpp</a></code>. <code>Gdi+</code> is used for the graphics. The main class is <code><a class="el" href="class_c_main.html" title="The main class.">CMain</a></code>, which encapsulates the main body of the code in the approved object-oriented fashion.</p>
+<hr  />
+<p ><a class="anchor" id="section3"></a> </p><h2>3. The Controls </h2>
+<p >The menu bar at the top of the application window has four drop-down menus, <a class="el" href="index.html#filemenu">File</a>, <a class="el" href="index.html#generatemenu">Generate</a>, <a class="el" href="index.html#viewmenu">View</a>, and <a class="el" href="index.html#helpmenu">Help</a>.</p>
+<p ><a class="anchor" id="filemenu"></a> </p><h3>3.1 The <code>File</code> Menu</h3>
 <div class="image">
 <img src="FileMenu.png" alt=""/>
 </div>
@@ -136,38 +138,45 @@ Fig 3. A sorting network with a redundant comparator.</div></div>
 </ol>
 <p ><a class="anchor" id="quit"></a></p><h4>3.1.4 <code>Quit</code></h4>
 <p >Selecting <code>Quit</code> will exit the application.</p>
-<hr  />
 <p ><a class="anchor" id="generatemenu"></a></p><h3>3.2 The <code>Generate</code> Menu</h3>
 <div class="image">
 <img src="GenerateMenu.png" alt=""/>
 </div>
-<p >The <code>Generate</code> menu has six options, <code>Bubblesort-min</code>, <code>Bubblesort-max</code>, <code>Bubblesort</code>, <code>Odd-even</code>, <code>Bitonic</code>, and <code>Pairwise</code>. All of these will pop up a dialog box asking for the number of inputs.</p>
+<p >The <code>Generate</code> menu has six options, <a class="el" href="index.html#bubblesortmin">Bubblesort-min</a>, <a class="el" href="index.html#bubblesortmax">Bubblesort-max</a>, <a class="el" href="index.html#bubblesort">Bubblesort</a>, <a class="el" href="index.html#oddeven">Odd-even</a>, <a class="el" href="index.html#bitonic">Bitonic</a>, and <a class="el" href="index.html#pairwise">Pairwise</a>. All of these will pop up a dialog box asking for the number of inputs.</p>
 <div class="image">
 <img src="inputs.png" alt=""/>
 </div>
+<p ><a class="anchor" id="bubblesortmin"></a></p><h4>3.2.1 <code>Bubblesort-min</code></h4>
 <p ><code>Bubblesort-min</code> generates a sorting network that emulates the classical bubblesort algorithm by bubbling the smallest value to the minimum channel, then the second smallest value to the second minimum channel, etc., placing each sequence of comparators as close as possible to take advantage of parallelism. An \(n\)-input <code>Bubblesort-min</code> sorting network has depth \(2n-3\) and size (number of comparators) \(n(n-1)/2\). <a class="el" href="index.html#fig4">Fig. 4</a> (left) shows an example with 16 inputs.</p>
-<p ><code>Bubblesort-max</code> generates a similar sorting network that bubbles maxima instead of minima. It also has depth \(2n-3\) and size \(n(n-1)/2\). <a class="el" href="index.html#fig4">Fig. 4</a> (center) shows an example with 16 inputs.</p>
-<p ><code>Bubblesort</code> generates a fully parallelized bubblesort. An \(n\)-input <code>Bubblesort</code> sorting network has depth \(n\) and size \(n(n-1)/2\). <a class="el" href="index.html#fig4">Fig. 4</a> (right) shows an example with 16 inputs.</p>
-<p ><a class="anchor" id="fig4"></a> </p><div class="image">
+<p ><a class="anchor" id="fig4"></a></p><div class="image">
 <object type="image/svg+xml" data="Bubblesort16.svg" width="95%" style="pointer-events: none;"></object>
 <div class="caption">
 Fig. 4: 16-input bubblesort-min (left), bubblesort-max (center) and bubblesort (right) sorting networks.</div></div>
-<p ><code>Odd-even</code> and <code>Bitonic</code> generate Batcher's odd-even and bitonic sorting networks, respectively, from</p>
+<p ><a class="anchor" id="bubblesortmax"></a></p><h4>3.2.2 <code>Bubblesort-max</code></h4>
+<p ><code>Bubblesort-max</code> generates a similar sorting network that bubbles maxima instead of minima. It also has depth \(2n-3\) and size \(n(n-1)/2\). <a class="el" href="index.html#fig4">Fig. 4</a> (center) shows an example with 16 inputs.</p>
+<p ><a class="anchor" id="bubblesort"></a></p><h4>3.2.3 <code>Bubblesort</code></h4>
+<p ><code>Bubblesort</code> generates a fully parallelized bubblesort. An \(n\)-input <code>Bubblesort</code> sorting network has depth \(n\) and size \(n(n-1)/2\). <a class="el" href="index.html#fig4">Fig. 4</a> (right) shows an example with 16 inputs.</p>
+<p ><a class="anchor" id="oddeven"></a></p><h4>3.2.3 <code>Odd-even</code></h4>
+<p ><code>Odd-even</code> generates Batcher's odd-even sorting network from the following paper. <a class="el" href="index.html#fig5">Fig. 5</a> (left) shows an odd-even sorting network with 16 inputs.</p>
 <blockquote class="doxtable">
 <p >K. E. Batcher, "Sorting networks and their applications", In Proc. AFIPS Spring Joint Computer Conference, Vol. 32, pp. 307–314, 1968. </p>
 </blockquote>
-<p><a class="anchor" id="fig5"></a> </p><div class="image">
+<p ><a class="anchor" id="fig5"></a></p><div class="image">
 <object type="image/svg+xml" data="triple.svg" width="95%" style="pointer-events: none;"></object>
 <div class="caption">
 Fig. 5: A 16-input odd-even (left), bitonic (center), and pairwise (right) sorting network.</div></div>
-<p ><a class="el" href="index.html#fig5">Fig. 5</a> (left) shows an odd-even sorting network with 16 inputs. <a class="el" href="index.html#fig5">Fig. 5</a> (center) shows a bitonic sorting network with 16 inputs.</p>
-<p ><code>Pairwise</code> generates the pairwise sorting network from</p>
+<p ><a class="anchor" id="bitonic"></a></p><h4>3.2.4 <code>Bitonic</code></h4>
+<p ><code>Bitonic</code> generates Batcher's bitonic sorting network from the following paper. <a class="el" href="index.html#fig5">Fig. 5</a> (center) shows a bitonic sorting network with 16 inputs.</p>
+<blockquote class="doxtable">
+<p >K. E. Batcher, "Sorting networks and their applications", In Proc. AFIPS Spring Joint Computer Conference, Vol. 32, pp. 307–314, 1968. </p>
+</blockquote>
+<p ><a class="anchor" id="pairwise"></a></p><h4>3.2.5 <code>Pairwise</code></h4>
+<p ><code>Pairwise</code> generates the pairwise sorting network from the following paper. <a class="el" href="index.html#fig5">Fig. 5</a> (right) shows a pairwise sorting network with 16 inputs.</p>
 <blockquote class="doxtable">
 <p >I. Parberry, "The pairwise sorting network", <em>Parallel Processing Letters</em>, Vol. 2, No. 2,3, pp. 205-211, 1992. </p>
 </blockquote>
-<p><a class="el" href="index.html#fig5">Fig. 5</a> (right) shows a pairwise sorting network with 16 inputs.</p>
-<p >Technically, the odd-even, bitonic, and pairwise sorting networks are only defined for a power of 2 inputs. If you specify a number of inputs \(n\) that is not a power of two, the generator will construct a sorting network with \(2^{\lceil \log_2 n\rceil}\) inputs and remove the unneeded channels and the comparators on them. If \(n\) is a power of 2, the odd-even and pairwise sorting networks have depth \(\log_2(n) (\log_2 (n) + 1)/2\) and size \(n\log_2 (n)(\log_2 (n) - 1)/4 + n - 1\), and the bitonic sorting network has the same depth and size \(n \log_2(n)/2\).</p>
-<hr  />
+<h4>3.2.6 On the Number of Inputs to <code>Odd-even</code>, <code>Pairwise</code>, and <code>Bitonic</code> Sorting Networks</h4>
+<p >Technically, the odd-even, bitonic, and pairwise sorting networks are only defined when the number of inputs is a power of 2. If you specify a number of inputs \(n\) that is not a power of 2, the generator will construct a sorting network with \(2^{\lceil \log_2 n\rceil}\) inputs (that is, it will round up to the next power of 2, if necessary) and remove unneeded channels and the comparators on them. If \(n\) is a power of 2, the odd-even and pairwise sorting networks have depth \(\log_2(n) (\log_2 (n) + 1)/2\) and size \(n\log_2 (n)(\log_2 (n) - 1)/4 + n - 1\), and the bitonic sorting network has the same depth and size \(n \log_2(n)/2\).</p>
 <p ><a class="anchor" id="viewmenu"></a></p><h3>3.3 The <code>View</code> Menu</h3>
 <div class="image">
 <img src="ViewMenu.png" alt=""/>
@@ -177,17 +186,32 @@ Fig. 5: A 16-input odd-even (left), bitonic (center), and pairwise (right) sorti
 <object type="image/svg+xml" data="w4d3s5v.svg" height="80" style="pointer-events: none;"></object>
 <div class="caption">
 Fig. 6: A 4-input sorting network drawn in vertical format.</div></div>
-<hr  />
 <p ><a class="anchor" id="helpmenu"></a></p><h3>3.4 The <code>Help</code> Menu</h3>
 <div class="image">
 <img src="HelpMenu.png" alt=""/>
 </div>
-<p >The <code>Help</code> menu has two entries, <code>Display help</code> which opens up this documentation in a browser, and <code>About</code> which displays the <code>About</code> dialog box. </p>
+<p >The <code>Help</code> menu has two entries, <code>Display</code> <code>help</code> which opens up this documentation in a browser, and <code>About</code> which displays the <code>About</code> dialog box.</p>
+<hr  />
+<p ><a class="anchor" id="section4"></a> </p><h2>4. Sorting Network Files </h2>
+<p >The repository contains 11 sample comparator network files. The input format is described in <a class="el" href="index.html#open">Section 3.1.1</a>.</p>
+<ol type="1">
+<li><code>bad-input.txt</code>: This is an example of a bad input file, for testing purposes only.</li>
+<li><code>does-not-sort.txt</code>: This comparator network does not sort.</li>
+<li><code>knuth16.txt</code>: A 16-input sorting network of depth 9 and size 61, shown in <a class="el" href="index.html#fig1">Fig. 1</a>.</li>
+<li><code>w4d3s5.txt</code>: A 4-input sorting network of depth 3 and size 5, shown in <a class="el" href="index.html#fig2">Fig. 2</a>.</li>
+<li><code>w5d5s8.txt</code>: A 5-input sorting network of depth 5 and size 8.</li>
+<li><code>w6d5s12.txt</code>: A 6-input sorting network of depth 5 and size 12.</li>
+<li><code>w7d6s16.txt</code>: A 7-input sorting network of depth 6 and size 16.</li>
+<li><code>w8d6s19.txt</code>: An 8-input sorting network of depth 6 and size 19.</li>
+<li><code>w9d7s27.txt</code>: A 9-input sorting network of depth 7 and size 27.</li>
+<li><code>w10d7s31.txt</code>: A 10-input sorting network of depth 7 and size 31.</li>
+<li><code>w10d7s32.txt</code>: A 10-input sorting network of depth 7 and size 32, shown in <a class="el" href="index.html#fig3">Fig. 3</a>. This sorting network is <code>w10d7s31.txt</code> plus a redundant comparator. </li>
+</ol>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 18 2022 18:10:14 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Generated on Tue Apr 19 2022 13:29:40 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
 </small></address>
 </body>
 </html>

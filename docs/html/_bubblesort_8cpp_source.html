@@ -189,7 +189,7 @@ $(function() {
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  <span class="keywordflow">if</span>(n &lt; 2)<span class="keywordflow">return</span>; <span class="comment">//safety</span></div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>  <a class="code hl_variable" href="class_c_comparator_network.html#a78a244e17dd9f5f9490554c4d013dda8">m_nInputs</a> = n;</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  <a class="code hl_variable" href="class_c_comparator_network.html#a258dff5d270afd420c5ae85b053e4a8d">m_nDepth</a> = n;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  <a class="code hl_variable" href="class_c_comparator_network.html#a258dff5d270afd420c5ae85b053e4a8d">m_nDepth</a> = (n == 2)? 1: n;</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  <a class="code hl_function" href="class_c_comparator_network.html#aa4c1a665b0ed306d2e13d5892da73fba">CreateMatchArray</a>(<a class="code hl_variable" href="class_c_comparator_network.html#a78a244e17dd9f5f9490554c4d013dda8">m_nInputs</a>, <a class="code hl_variable" href="class_c_comparator_network.html#a258dff5d270afd420c5ae85b053e4a8d">m_nDepth</a>);</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>  <a class="code hl_function" href="class_c_bubble_sort.html#a8a42d568bc3a00fee6a1e292e8319e75">CreateComparators</a>();</div>
@@ -231,7 +231,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 18 2022 18:10:14 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Generated on Tue Apr 19 2022 13:29:39 for Sorting Network Verify and Draw by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
 </small></address>
 </body>
 </html>

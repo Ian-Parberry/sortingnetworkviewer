@@ -1,5 +1,7 @@
 /// \mainpage
 ///
+/// \anchor section1
+///
 /// 1. Introduction
 /// ------------
 ///
@@ -34,6 +36,17 @@
 /// A comparator network can be exported as a `PNG` file, an `SVG` file, or a `TeX` file
 /// (see \ref export "Section 3.1.3" for more information).
 ///
+/// The remainder of this page is divided into 3 sections.
+/// \ref section2 "Section 2" gives an overview of the code.
+/// \ref section3 "Section 3" describes the controls, which are
+/// contained in the menu bar.
+/// \ref section4 "Section 4" lists the sample input files provided, each
+/// with a brief description.
+///
+/// ---
+///
+/// \anchor section2
+///
 /// 2. Code Overview
 /// ----------------
 ///
@@ -50,6 +63,10 @@
 /// The main class is `CMain`, which encapsulates the main body of the
 /// code in the approved object-oriented fashion. 
 ///
+/// ---
+///
+/// \anchor section3
+///
 /// 3. The Controls
 /// ---------------
 ///
@@ -58,10 +75,9 @@
 /// \ref generatemenu "Generate", 
 /// \ref viewmenu "View", and 
 /// \ref helpmenu "Help".
-///
-/// ---
 /// 
 /// \anchor filemenu
+///
 /// ### 3.1 The `File` Menu
 ///
 /// \image html FileMenu.png 
@@ -169,18 +185,25 @@
 /// 
 /// Selecting `Quit` will exit the application.
 ///
-/// ---
 ///
 /// \anchor generatemenu
 /// ### 3.2 The `Generate` Menu
 ///
 /// \image html GenerateMenu.png 
 ///
-/// The `Generate` menu has six options, `Bubblesort-min`,
-/// `Bubblesort-max`, `Bubblesort`, `Odd-even`, `Bitonic`, and `Pairwise`.
+/// The `Generate` menu has six options, 
+/// \ref bubblesortmin "Bubblesort-min",
+/// \ref bubblesortmax "Bubblesort-max",
+/// \ref bubblesort "Bubblesort",
+/// \ref oddeven "Odd-even",
+/// \ref bitonic "Bitonic", and
+/// \ref pairwise "Pairwise".
 /// All of these will pop up a dialog box asking for the number of inputs.
 ///
 /// \image html inputs.png 
+///
+/// \anchor bubblesortmin
+/// #### 3.2.1 `Bubblesort-min`
 ///
 /// `Bubblesort-min` generates a sorting network that emulates the classical
 /// bubblesort algorithm by bubbling the smallest value to the minimum channel,
@@ -190,53 +213,72 @@
 /// size (number of comparators) \f$n(n-1)/2\f$.
 /// \ref fig4 "Fig. 4" (left) shows an example with 16 inputs.
 ///
+/// \anchor fig4
+/// \image html Bubblesort16.svg "Fig. 4: 16-input bubblesort-min (left), bubblesort-max (center) and bubblesort (right) sorting networks." width=95% 
+///
+/// \anchor bubblesortmax
+/// #### 3.2.2 `Bubblesort-max`
+///
 /// `Bubblesort-max` generates a similar sorting network that bubbles maxima
 /// instead of minima.
 /// It also has depth \f$2n-3\f$ and size \f$n(n-1)/2\f$.
 /// \ref fig4 "Fig. 4" (center) shows an example with 16 inputs.
+///
+/// \anchor bubblesort
+/// #### 3.2.3 `Bubblesort`
 ///
 /// `Bubblesort` generates a fully parallelized bubblesort.
 /// An \f$n\f$-input `Bubblesort` sorting network has depth \f$n\f$ and
 /// size \f$n(n-1)/2\f$.
 /// \ref fig4 "Fig. 4" (right) shows an example with 16 inputs.
 ///
-/// \anchor fig4
+/// \anchor oddeven
+/// #### 3.2.3 `Odd-even`
 ///
-/// \image html Bubblesort16.svg "Fig. 4: 16-input bubblesort-min (left), bubblesort-max (center) and bubblesort (right) sorting networks." width=95% 
-///
-/// `Odd-even` and `Bitonic` generate Batcher's odd-even and bitonic sorting
-///  networks, respectively, from
+/// `Odd-even` generates Batcher's odd-even sorting network from the following paper.
+/// \ref fig5 "Fig. 5" (left) shows an odd-even sorting network with 16 inputs.
 ///
 /// > K. E. Batcher, "Sorting networks and their applications", In Proc. AFIPS
 /// > Spring Joint Computer Conference, Vol. 32, pp. 307–314, 1968.
 ///
-/// \anchor fig5
 ///
+/// \anchor fig5
 /// \image html triple.svg "Fig. 5: A 16-input odd-even (left), bitonic (center), and pairwise (right) sorting network." width=95% 
 ///
-/// \ref fig5 "Fig. 5" (left) shows an odd-even sorting network with 16 inputs.
+/// \anchor bitonic
+/// #### 3.2.4 `Bitonic`
+///
+/// `Bitonic` generates Batcher's bitonic sorting network from the following paper.
 /// \ref fig5 "Fig. 5" (center) shows a bitonic sorting network with 16 inputs.
 ///
-/// `Pairwise` generates the pairwise sorting network from
+/// > K. E. Batcher, "Sorting networks and their applications", In Proc. AFIPS
+/// > Spring Joint Computer Conference, Vol. 32, pp. 307–314, 1968.
+///
+///
+/// \anchor pairwise
+/// #### 3.2.5 `Pairwise`
+///
+/// `Pairwise` generates the pairwise sorting network from the following paper.
+/// \ref fig5 "Fig. 5" (right) shows a pairwise sorting network with 16 inputs.
 ///
 /// > I. Parberry, "The pairwise sorting network", 
 /// > _Parallel Processing Letters_, Vol. 2, No. 2,3, pp. 205-211, 1992.
 ///
-/// \ref fig5 "Fig. 5" (right) shows a pairwise sorting network with 16 inputs.
+///
+/// #### 3.2.6 On the Number of Inputs to `Odd-even`, `Pairwise`, and `Bitonic` Sorting Networks
 ///
 /// Technically, the odd-even, bitonic, and pairwise sorting networks are only
-/// defined for a power of 2 inputs.
-/// If you specify a number of inputs \f$n\f$ that is not a power of two, 
+/// defined when the number of inputs is a power of 2.
+/// If you specify a number of inputs \f$n\f$ that is not a power of 2, 
 /// the generator will
 /// construct a sorting network with \f$2^{\lceil \log_2 n\rceil}\f$ inputs
-/// and remove the unneeded channels and 
+/// (that is, it will round up to the next power of 2, if necessary)
+/// and remove unneeded channels and 
 /// the comparators on them.
 /// If \f$n\f$ is a power of 2, the odd-even and pairwise sorting networks have depth
 /// \f$\log_2(n) (\log_2 (n) + 1)/2\f$ and size
 /// \f$n\log_2 (n)(\log_2 (n) - 1)/4 + n - 1\f$, and the bitonic sorting network
 /// has the same depth and size \f$n \log_2(n)/2\f$.
-///
-/// ---
 /// 
 /// \anchor viewmenu
 /// ### 3.3 The `View` Menu
@@ -256,17 +298,39 @@
 ///
 /// \image html w4d3s5v.svg "Fig. 6: A 4-input sorting network drawn in vertical format." height=80
 ///
-/// ---
-///
 /// \anchor helpmenu
 /// ### 3.4 The `Help` Menu
 ///
 /// \image html HelpMenu.png 
 ///
-/// The `Help` menu has two entries, `Display help` which opens up this 
+/// The `Help` menu has two entries, `Display` `help` which opens up this 
 /// documentation in a browser,
 /// and `About` which displays the `About` dialog box.
 ///
-
+/// ---
+///
+/// \anchor section4
+///
+/// 4. Sorting Network Files
+/// ------------------------
+///
+/// The repository contains 11 sample comparator network files.
+/// The input format is described in \ref open "Section 3.1.1".
+///
+/// 1. `bad-input.txt`: This is an example of a bad input file, for testing purposes only.
+/// 2. `does-not-sort.txt`: This comparator network does not sort.
+/// 3. `knuth16.txt`: A 16-input sorting network of depth 9 and size 61,
+/// shown in \ref fig1 "Fig. 1".
+/// 4. `w4d3s5.txt`: A 4-input sorting network of depth 3 and size 5, shown
+/// in \ref fig2 "Fig. 2".
+/// 5. `w5d5s8.txt`: A 5-input sorting network of depth 5 and size 8.
+/// 6. `w6d5s12.txt`: A 6-input sorting network of depth 5 and size 12.
+/// 7. `w7d6s16.txt`: A 7-input sorting network of depth 6 and size 16.
+/// 8. `w8d6s19.txt`: An 8-input sorting network of depth 6 and size 19.
+/// 9. `w9d7s27.txt`: A 9-input sorting network of depth 7 and size 27.
+/// 10. `w10d7s31.txt`: A 10-input sorting network of depth 7 and size 31.
+/// 11. `w10d7s32.txt`: A 10-input sorting network of depth 7 and size 32,
+/// shown in \ref fig3 "Fig. 3".
+/// This sorting network is `w10d7s31.txt` plus a redundant comparator.
 
  
