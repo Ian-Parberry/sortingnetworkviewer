@@ -111,12 +111,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>$(SolutionName)</TargetName>
+    <LibraryPath>$(VLD_DIR)lib\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VLD_DIR)include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetName>$(SolutionName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>$(SolutionName)</TargetName>
+    <LibraryPath>$(VLD_DIR)lib\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VLD_DIR)include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TargetName>$(SolutionName)</TargetName>

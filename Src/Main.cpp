@@ -23,6 +23,10 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
+#ifdef _DEBUG
+  #include <vld.h> //Visual Leak Detector from http://vld.codeplex.com/
+#endif
+
 #include "Includes.h"
 
 #include "CMain.h"
