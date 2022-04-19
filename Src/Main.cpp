@@ -23,9 +23,9 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-#ifdef _DEBUG
-  #include <vld.h> //Visual Leak Detector from http://vld.codeplex.com/
-#endif
+//#ifdef _DEBUG
+  //#include <vld.h> //Visual Leak Detector from http://vld.codeplex.com/
+//#endif
 
 #include "Includes.h"
 
@@ -37,6 +37,9 @@
 #include "Bubblesort.h"
 
 static CMain* g_pMain = nullptr; ///< Pointer to the main class.
+
+static const int g_nMinW = 320; ///< Minimum window width.
+static const int g_nMinH = 160; ///< Minimum window height.
 
 /// \brief Window procedure.
 ///
@@ -62,7 +65,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam){
       return 0;
       
     case WM_SIZING: //user is resizing the window
-	    MinDragRect(hWnd, wParam, (RECT*)lParam, 320); //enforce minimum size
+	    MinDragRect(hWnd, wParam, (RECT*)lParam, g_nMinW, g_nMinH); //enforce minimum size
 	    return 0;
 
     case WM_PAINT: //window needs to be redrawn

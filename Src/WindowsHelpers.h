@@ -76,7 +76,7 @@ HRESULT GetEncoderClsid(const WCHAR*, CLSID*); ///< Get encoder CLSID.
 HRESULT Load(HWND, CComparatorNetwork*, std::wstring&); ///< Load comparator network.
 HRESULT ExportImage(const eExport, HWND, CRenderableComparatorNet*, std::wstring&); ///< Export.
 
-void MinDragRect(HWND, WPARAM, RECT*, int); ///< Enforce minimum drag rectangle.
+void MinDragRect(HWND, WPARAM, RECT*, int, int); ///< Enforce minimum drag rectangle.
 
 #pragma endregion Helper functions
 

@@ -57,9 +57,10 @@ std::wstring FileNameBase(const std::wstring& wstrPath){
 /// \param hwnd Window handle.
 /// \param wParam WMSZ message telling us which edge is being dragged on.
 /// \param pRect [IN, OUT] Pointer to drag rectangle.
-/// \param n Minimum width and height of client area.
+/// \param w Minimum width of client area.
+/// \param h Minimum height of client area.
 
-void MinDragRect(HWND hwnd, WPARAM wParam, RECT* pRect, int n){ 
+void MinDragRect(HWND hwnd, WPARAM wParam, RECT* pRect, int w, int h){ 
   RECT cr; //client rectangle
   RECT wr; //window rectangle, includes client rectangle and borders
 
@@ -73,8 +74,8 @@ void MinDragRect(HWND hwnd, WPARAM wParam, RECT* pRect, int n){
 
   //new drag window width and height
 
-  const int dw = max(n, pRect->right - pRect->left - bw) + bw; //new width
-  const int dh = max(n, pRect->bottom - pRect->top - bh) + bh; //new height
+  const int dw = max(w, pRect->right - pRect->left - bw) + bw; //new width
+  const int dh = max(h, pRect->bottom - pRect->top - bh) + bh; //new height
 
   //enforce new  drag window width and height
 
@@ -147,7 +148,8 @@ void InitWindow(HINSTANCE hInst, INT nShow, WNDPROC WndProc){
    
   RegisterClassEx(&wndClass);
 
-  const DWORD dwStyle = WS_CAPTION | WS_MINIMIZEBOX| WS_THICKFRAME | WS_SYSMENU; 
+  const DWORD dwStyle = WS_CAPTION | WS_MAXIMIZEBOX | WS_MINIMIZEBOX |
+    WS_THICKFRAME | WS_SYSMENU; 
   const DWORD dwStyleEx = WS_EX_APPWINDOW | WS_EX_DLGMODALFRAME;
 
   const int w = 600; //window client area width.
