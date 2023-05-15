@@ -31,8 +31,31 @@
 
 /// \brief Binary reflected Gray code generator.
 ///
-/// A binary Gray code generates all strings of n bits in such a way that
-/// each string differs from the previous one in exactly one bit.
+/// A binary Gray code generates all strings of a fixed number of bits in such
+/// a way that each string differs from the previous one in exactly one bit.
+/// For example, the following is a binary reflected Gray code on 4 bits
+/// with each bit string followed by the index of the changed bit (from
+/// left to right starting at zero).
+/// 
+/// \code
+/// 0000
+/// 1000 0
+/// 1100 1
+/// 0100 0
+/// 0110 2
+/// 1110 0
+/// 1010 1
+/// 0010 0
+/// 0011 3
+/// 1011 0
+/// 1111 1
+/// 0111 0
+/// 0101 2
+/// 1101 0
+/// 1001 1
+/// 0001 0
+/// \endcode
+/// 
 /// This class implements a nonrecursive version of the binary reflected Gray
 /// code generation algorithm from the following paper:
 /// 
